@@ -55,19 +55,23 @@
 
     <!-- Existing CSS and Scripts -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@200;400;600&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital@0;1&family=Inter:wght@200;400;600&display=swap"
           rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js"></script>
 
-    <!-- Existing Styles -->
+    <!-- Updated Styles -->
     <style>
-        /* Your existing styles remain unchanged */
         :root {
             --color-primary: #B6C7AA;
             --color-secondary: #F6E6CB;
             --color-accent: #65647C;
             --color-text-primary: #4A4947;
             --color-text-secondary: #686764;
+            --color-1: #e4a0a6;
+            --color-2: #d4a0b6;
+            --color-3: #c4a0c6;
+            --color-4: #b4a0d6;
+            --color-5: #a4a0e6;
         }
 
         * {
@@ -112,19 +116,18 @@
         }
 
         h1 {
-            font-family: 'DM Serif Display', serif;
+            font-family: 'EB Garamond', serif;
             font-size: 4rem;
-            font-weight: normal;
+            font-weight: bold;
             margin: 0;
             color: var(--color-text-primary);
             letter-spacing: -0.02em;
         }
 
         .subtitle {
-            font-family: 'DM Serif Display', serif;
+            font-family: 'EB Garamond', serif;
             font-size: 1.8rem;
             color: var(--color-text-primary);
-            font-style: italic;
         }
 
         .store-buttons {
@@ -162,9 +165,30 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: var(--color-primary);
             border-radius: 12px;
             color: var(--color-text-primary);
+            transition: transform 0.2s ease;
+        }
+
+        .feature-icon:hover {
+            transform: scale(1.05);
+        }
+
+        /* Individual feature icon colors - from lightest to darkest purple */
+        .feature:nth-child(1) .feature-icon {
+            background-color: var(--color-5);
+        }
+
+        .feature:nth-child(2) .feature-icon {
+            background-color: var(--color-4);
+        }
+
+        .feature:nth-child(3) .feature-icon {
+            background-color: var(--color-3);
+        }
+
+        .feature:nth-child(4) .feature-icon {
+            background-color: var(--color-2);
         }
 
         .feature-text {
@@ -256,7 +280,6 @@
             </a>
         </div>
     </div>
-
 
     <footer>
         <p>© 2025 Habby. All rights reserved. • <a href="privacy-policy.html">Privacy Policy</a></p>
