@@ -1,43 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>habby - Bullet Journal & Habit Tracking App</title>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<title>habby - Bullet Journal & Habit Tracking App</title>
 
-    <!-- SEO Meta Tags -->
-    <meta content="Transform your life with habby - a beautiful, distraction-free digital bullet journal and habit tracking app. Set goals, track habits, and capture your daily journey with elegance and simplicity."
-          name="description">
-    <meta content="bullet journal app, digital bullet journal, habit tracker, habit tracking app, daily journaling, minimalist journal, goal tracking app"
-          name="keywords">
+	<!-- SEO Meta Tags -->
+	<meta
+		content="Transform your life with habby - a beautiful, distraction-free digital bullet journal and habit tracking app. Set goals, track habits, and capture your daily journey with elegance and simplicity."
+		name="description">
+	<meta
+		content="bullet journal app, digital bullet journal, habit tracker, habit tracking app, daily journaling, minimalist journal, goal tracking app"
+		name="keywords">
 
-    <!-- Canonical URL -->
-    <link href="https://habby.day/" rel="canonical">
+	<!-- Canonical URL -->
+	<link href="https://habby.day/" rel="canonical">
 
-    <!-- Favicon -->
-    <link href="favicon.ico" rel="icon" type="image/png">
-    <link href="apple-touch-icon.png" rel="apple-touch-icon">
+	<!-- Favicon -->
+	<link href="favicon.ico" rel="icon" type="image/png">
+	<link href="apple-touch-icon.png" rel="apple-touch-icon">
 
-    <!-- Open Graph / Facebook -->
-    <meta content="website" property="og:type">
-    <meta content="https://habby.day/" property="og:url">
-    <meta content="habby - Bullet Journal & Habit Tracking App" property="og:title">
-    <meta content="A beautiful, distraction-free digital bullet journal and habit tracking app. Transform your daily journaling and habit building experience."
-          property="og:description">
+	<!-- Open Graph / Facebook -->
+	<meta content="website" property="og:type">
+	<meta content="https://habby.day/" property="og:url">
+	<meta content="habby - Bullet Journal & Habit Tracking App" property="og:title">
+	<meta
+		content="A beautiful, distraction-free digital bullet journal and habit tracking app. Transform your daily journaling and habit building experience."
+		property="og:description">
 
-    <!-- Twitter -->
-    <meta content="summary_large_image" property="twitter:card">
-    <meta content="https://habby.day/" property="twitter:url">
-    <meta content="habby - Bullet Journal & Habit Tracking App" property="twitter:title">
-    <meta content="A beautiful, distraction-free digital bullet journal and habit tracking app. Transform your daily journaling and habit building experience."
-          property="twitter:description">
+	<!-- Twitter -->
+	<meta content="summary_large_image" property="twitter:card">
+	<meta content="https://habby.day/" property="twitter:url">
+	<meta content="habby - Bullet Journal & Habit Tracking App" property="twitter:title">
+	<meta
+		content="A beautiful, distraction-free digital bullet journal and habit tracking app. Transform your daily journaling and habit building experience."
+		property="twitter:description">
 
-    <!-- App-specific meta tags -->
-    <meta content="habby" name="application-name">
-    <meta content="app-id=YOUR_APP_ID" name="apple-itunes-app">
+	<!-- App-specific meta tags -->
+	<meta content="habby" name="application-name">
+	<meta content="app-id=YOUR_APP_ID" name="apple-itunes-app">
 
-    <!-- Structured Data -->
-    <script type="application/ld+json">
+	<!-- Structured Data -->
+	<script type="application/ld+json">
         {
             "@context": "https://schema.org",
             "@type": "MobileApplication",
@@ -53,241 +58,284 @@
         }
     </script>
 
-    <!-- Existing CSS and Scripts -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital@0;1&family=Inter:wght@200;400;600&display=swap"
-          rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js"></script>
+	<!-- Existing CSS and Scripts -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Amiri:ital@0;1&family=Inter:wght@200;400;600&display=swap"
+		rel="stylesheet">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js"></script>
 
-    <!-- Updated Styles -->
-    <style>
-        :root {
-            --color-primary: #B6C7AA;
-            --color-secondary: #F6E6CB;
-            --color-accent: #65647C;
-            --color-text-primary: #4A4947;
-            --color-text-secondary: #686764;
-            --color-1: #e4a0a6;
-            --color-2: #d4a0b6;
-            --color-3: #c4a0c6;
-            --color-4: #b4a0d6;
-            --color-5: #a4a0e6;
-        }
+	<!-- Updated Styles -->
+	<style>
+		:root {
+			--color-primary: #B6C7AA;
+			--color-secondary: #F6E6CB;
+			--color-accent: #65647C;
+			--color-text-primary: #4A4947;
+			--color-text-secondary: #686764;
+			--color-1: #e4a0a6;
+			--color-2: #d4a0b6;
+			--color-3: #c4a0c6;
+			--color-4: #b4a0d6;
+			--color-5: #a4a0e6;
+		}
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+		* {
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+		}
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--color-secondary);
-            color: var(--color-text-primary);
-            line-height: 1.6;
-        }
+		body {
+			font-family: 'Inter', sans-serif;
+			background-color: var(--color-secondary);
+			color: var(--color-text-primary);
+			line-height: 1.6;
+		}
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem;
-            text-align: center;
-        }
+		.container {
+			max-width: 800px;
+			margin: 0 auto;
+			padding: 2rem;
+			text-align: center;
+		}
 
-        .header {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
+		.header {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 1rem;
+			margin-bottom: 2rem;
+		}
 
-        .app-icon {
-            width: 80px;
-            height: 80px;
-            border-radius: 20px;
-            overflow: hidden;
-        }
+		.app-icon {
+			width: 80px;
+			height: 80px;
+			border-radius: 20px;
+			overflow: hidden;
+		}
 
-        .app-icon img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+		.app-icon img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
 
-        h1 {
-            font-family: 'Amiri', serif;
-            font-size: 4rem;
-            font-weight: bold;
-            margin: 0;
-            color: var(--color-text-primary);
-            letter-spacing: -0.02em;
-        }
+		h1 {
+			font-family: 'Amiri', serif;
+			font-size: 4rem;
+			font-weight: bold;
+			margin: 0;
+			color: var(--color-text-primary);
+			letter-spacing: -0.02em;
+		}
 
-        .subtitle {
-            font-family: 'Amiri', serif;
-            font-size: 1.8rem;
-            color: var(--color-text-primary);
-        }
+		.subtitle {
+			font-family: 'Amiri', serif;
+			font-size: 1.8rem;
+			color: var(--color-text-primary);
+		}
 
-        .store-buttons {
-            margin: 2rem 0 3rem;
-        }
+		.store-buttons {
+			margin: 2rem 0 3rem;
+		}
 
-        .store-buttons img {
-            height: 48px;
-            transition: opacity 0.2s ease;
-        }
+		.store-buttons img {
+			height: 48px;
+			transition: opacity 0.2s ease;
+		}
 
-        .store-buttons img:hover {
-            opacity: 0.9;
-        }
+		.store-buttons img:hover {
+			opacity: 0.9;
+		}
 
-        .features {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            max-width: 800px;
-            margin: 2em auto 0 auto;
-            text-align: center;
-        }
+		.features {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			gap: 2rem;
+			max-width: 800px;
+			margin: 2em auto 0 auto;
+			text-align: center;
+		}
 
-        .feature {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
-        }
+		.feature {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 1rem;
+		}
 
-        .feature-icon {
-            width: 48px;
-            height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 12px;
-            color: var(--color-text-primary);
-            transition: transform 0.2s ease;
-        }
+		.feature-icon {
+			width: 48px;
+			height: 48px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border-radius: 12px;
+			color: var(--color-text-primary);
+			transition: transform 0.2s ease;
+		}
 
-        .feature-icon:hover {
-            transform: scale(1.05);
-        }
+		.feature-icon:hover {
+			transform: scale(1.05);
+		}
 
-        /* Individual feature icon colors - from lightest to darkest purple */
-        .feature:nth-child(1) .feature-icon {
-            background-color: var(--color-5);
-        }
+		/* Individual feature icon colors - from lightest to darkest purple */
+		.feature:nth-child(1) .feature-icon {
+			background-color: var(--color-5);
+		}
 
-        .feature:nth-child(2) .feature-icon {
-            background-color: var(--color-4);
-        }
+		.feature:nth-child(2) .feature-icon {
+			background-color: var(--color-4);
+		}
 
-        .feature:nth-child(3) .feature-icon {
-            background-color: var(--color-3);
-        }
+		.feature:nth-child(3) .feature-icon {
+			background-color: var(--color-3);
+		}
 
-        .feature:nth-child(4) .feature-icon {
-            background-color: var(--color-2);
-        }
+		.feature:nth-child(4) .feature-icon {
+			background-color: var(--color-2);
+		}
 
-        .feature-text {
-            font-size: 1rem;
-            color: var(--color-text-primary);
-            line-height: 1.4;
-        }
+		.feature-text {
+			font-size: 1rem;
+			color: var(--color-text-primary);
+			line-height: 1.4;
+		}
 
-        footer {
-            margin-top: 4rem;
-            color: var(--color-text-secondary);
-            font-size: 0.9rem;
-        }
+		.support-section {
+			margin: 4rem auto 2rem;
+			padding: 0.5em;
+			border-radius: 12px;
+		}
 
-        footer a {
-            color: var(--color-text-secondary);
-            text-decoration: none;
-            border-bottom: 1px solid currentColor;
-        }
+		.support-link {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.5rem;
+			color: #fff;
+			text-decoration: none;
+			font-size: 1.1rem;
+			padding: 0.5rem 1rem;
+			border-radius: 8px;
+			background-color: var(--color-2);
+			transition: all 0.2s ease;
+		}
 
-        footer a:hover {
-            opacity: 0.8;
-        }
+		.support-link:hover {
+			background-color: var(--color-1);
+			transform: translateY(-1px);
+		}
 
-        @media (max-width: 768px) {
-            .features {
-                grid-template-columns: repeat(2, 1fr);
-            }
+		.support-link i {
+			width: 18px;
+			height: 18px;
+		}
 
-            h1 {
-                font-size: 3rem;
-            }
+		footer {
+			margin-top: 2rem;
+			color: var(--color-text-secondary);
+			font-size: 0.9rem;
+		}
 
-            .subtitle {
-                font-size: 1.4rem;
-            }
-        }
+		footer a {
+			color: var(--color-text-secondary);
+			text-decoration: none;
+			border-bottom: 1px solid currentColor;
+		}
 
-        @media (max-width: 480px) {
-            .features {
-                grid-template-columns: 1fr;
-            }
+		footer a:hover {
+			opacity: 0.8;
+		}
 
-            .container {
-                padding: 1rem;
-            }
-        }
-    </style>
+		@media (max-width: 768px) {
+			.features {
+				grid-template-columns: repeat(2, 1fr);
+			}
+
+			h1 {
+				font-size: 3rem;
+			}
+
+			.subtitle {
+				font-size: 1.4rem;
+			}
+		}
+
+		@media (max-width: 480px) {
+			.features {
+				grid-template-columns: 1fr;
+			}
+
+			.container {
+				padding: 1rem;
+			}
+
+			.support-section {
+				margin: 3rem auto 1.5rem;
+				padding: 1rem;
+			}
+		}
+	</style>
 </head>
+
 <body>
-<div class="container">
-    <div class="header">
-        <div class="app-icon">
-            <img alt="Habby app icon" src="icon.png">
-        </div>
-        <h1>habby</h1>
-        <div class="subtitle">Bullet Journal - Habit Tracker</div>
+	<div class="container">
+		<div class="header">
+			<div class="app-icon">
+				<img alt="Habby app icon" src="icon.png">
+			</div>
+			<h1>habby</h1>
+			<div class="subtitle">Bullet Journal - Habit Tracker</div>
 
-        <div class="features">
-            <div class="feature">
-                <div class="feature-icon">
-                    <i data-feather="feather"></i>
-                </div>
-                <div class="feature-text">Simple, beautiful, and distraction-free by design</div>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">
-                    <i data-feather="edit-3"></i>
-                </div>
-                <div class="feature-text">Capture your day with a single meaningful sentence</div>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">
-                    <i data-feather="check-circle"></i>
-                </div>
-                <div class="feature-text">Track daily habits with flexible measurement options</div>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">
-                    <i data-feather="bar-chart-2"></i>
-                </div>
-                <div class="feature-text">Set and achieve monthly goals with progress tracking</div>
-            </div>
-        </div>
-        <div class="store-buttons">
-            <a href="#">
-                <img alt="Download on the App Store"
-                     src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg">
-            </a>
-        </div>
-    </div>
+			<div class="features">
+				<div class="feature">
+					<div class="feature-icon">
+						<i data-feather="feather"></i>
+					</div>
+					<div class="feature-text">Simple, beautiful, and distraction-free by design</div>
+				</div>
+				<div class="feature">
+					<div class="feature-icon">
+						<i data-feather="edit-3"></i>
+					</div>
+					<div class="feature-text">Capture your day with a single meaningful sentence</div>
+				</div>
+				<div class="feature">
+					<div class="feature-icon">
+						<i data-feather="check-circle"></i>
+					</div>
+					<div class="feature-text">Track daily habits with flexible measurement options</div>
+				</div>
+				<div class="feature">
+					<div class="feature-icon">
+						<i data-feather="bar-chart-2"></i>
+					</div>
+					<div class="feature-text">Set and achieve monthly goals with progress tracking</div>
+				</div>
+			</div>
+			<div class="store-buttons">
+				<a href="#">
+					<img alt="Download on the App Store"
+						src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg">
+				</a>
+			</div>
+		</div>
 
-    <footer>
-        <p>© 2025 Habby. All rights reserved. • <a href="privacy-policy.html">Privacy Policy</a></p>
-    </footer>
-</div>
+		<div class="support-section">
+			<a href="https://buymeacoffee.com/habbyapp" target="_blank" class="support-link">
+				<i data-feather="coffee"></i>
+				Support habby
+			</a>
+		</div>
 
-<script>
-    feather.replace()
-</script>
+		<footer>
+			<p>© 2025 Habby. All rights reserved. • <a href="privacy-policy.html">Privacy Policy</a></p>
+		</footer>
+	</div>
+
+	<script>
+		feather.replace()
+	</script>
 </body>
+
 </html>
