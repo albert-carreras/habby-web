@@ -6,7 +6,6 @@
 	<meta content="width=device-width, initial-scale=1.0" name="viewport">
 	<title>habby - Bullet Journal & Habit Tracking App</title>
 
-	<!-- Google tag (gtag.js) -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-3FXEQKVEKL"></script>
 	<script>
 		window.dataLayer = window.dataLayer || [];
@@ -15,42 +14,30 @@
 		gtag('config', 'G-3FXEQKVEKL');
 	</script>
 
-	<!-- SEO Meta Tags -->
 	<meta
 		content="Transform your life with habby - a beautiful, distraction-free digital bullet journal and habit tracking app. Set goals, track habits, and capture your daily journey with elegance and simplicity."
 		name="description">
 	<meta
 		content="bullet journal app, digital bullet journal, habit tracker, habit tracking app, daily journaling, minimalist journal, goal tracking app"
 		name="keywords">
-
-	<!-- Canonical URL -->
 	<link href="https://habby.day/" rel="canonical">
-
-	<!-- Favicon -->
 	<link href="favicon.ico" rel="icon" type="image/png">
 	<link href="apple-touch-icon.png" rel="apple-touch-icon">
-
-	<!-- Open Graph / Facebook -->
 	<meta content="website" property="og:type">
 	<meta content="https://habby.day/" property="og:url">
 	<meta content="habby - Bullet Journal & Habit Tracking App" property="og:title">
 	<meta
 		content="A beautiful, distraction-free digital bullet journal and habit tracking app. Transform your daily journaling and habit building experience."
 		property="og:description">
-
-	<!-- Twitter -->
 	<meta content="summary_large_image" property="twitter:card">
 	<meta content="https://habby.day/" property="twitter:url">
 	<meta content="habby - Bullet Journal & Habit Tracking App" property="twitter:title">
 	<meta
 		content="A beautiful, distraction-free digital bullet journal and habit tracking app. Transform your daily journaling and habit building experience."
 		property="twitter:description">
-
-	<!-- App-specific meta tags -->
 	<meta content="habby" name="application-name">
 	<meta content="app-id=6740526397" name="apple-itunes-app">
 
-	<!-- Structured Data -->
 	<script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -68,13 +55,11 @@
         }
     </script>
 
-	<!-- Existing CSS and Scripts -->
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Amiri:ital@0;1&family=Inter:wght@200;400;600&display=swap"
 		rel="stylesheet">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js"></script>
 
-	<!-- Updated Styles -->
 	<style>
 		:root {
 			--color-primary: #B6C7AA;
@@ -149,13 +134,50 @@
 			margin: 2rem 0 3rem;
 		}
 
-		.store-buttons img {
-			height: 48px;
-			transition: opacity 0.2s ease;
+		.cta-grid {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 1rem;
+			margin: 2rem auto;
+			max-width: 600px;
+			padding: 0 1rem;
 		}
 
-		.store-buttons img:hover {
-			opacity: 0.9;
+		.cta-button {
+			height: 48px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border-radius: 8px;
+			transition: all 0.2s ease;
+			text-decoration: none;
+			background: transparent;
+		}
+
+		.cta-button img {
+			height: 100%;
+			width: auto;
+		}
+
+		.cta-button:hover {
+			transform: translateY(-1px);
+		}
+
+		.coming-soon {
+			opacity: 0.5;
+			cursor: not-allowed;
+		}
+
+		.support-button {
+			background-color: var(--color-2);
+			color: white;
+			gap: 0.5rem;
+			font-size: 1rem;
+			padding: 0 1.5rem;
+		}
+
+		.support-button:hover {
+			background-color: var(--color-1);
 		}
 
 		.features {
@@ -163,7 +185,7 @@
 			grid-template-columns: repeat(4, 1fr);
 			gap: 2rem;
 			max-width: 800px;
-			margin: 2em auto 0 auto;
+			margin: 2em auto 3em auto;
 			text-align: center;
 		}
 
@@ -189,7 +211,6 @@
 			transform: scale(1.05);
 		}
 
-		/* Individual feature icon colors - from lightest to darkest purple */
 		.feature:nth-child(1) .feature-icon {
 			background-color: var(--color-5);
 		}
@@ -210,6 +231,29 @@
 			font-size: 1rem;
 			color: var(--color-text-primary);
 			line-height: 1.4;
+		}
+
+		.screenshots {
+			display: flex;
+			justify-content: center;
+			gap: 2rem;
+			margin: 0 auto 3rem auto;
+			max-width: 900px;
+			padding: 0 1rem;
+			position: relative;
+		}
+
+		.screenshot {
+			position: relative;
+		}
+
+		.screenshot img {
+			width: 100%;
+			height: auto;
+			border-radius: 12px;
+			border-top-left-radius: 60px;
+			border-top-right-radius: 60px;
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 		}
 
 		.support-section {
@@ -258,8 +302,21 @@
 		}
 
 		@media (max-width: 768px) {
+			.container {
+				padding: 1.5rem;
+			}
+
+			.cta-grid {
+				grid-template-columns: repeat(2, 1fr);
+			}
+
+			.support-button {
+				grid-column: span 2;
+			}
+
 			.features {
 				grid-template-columns: repeat(2, 1fr);
+				gap: 1.5rem;
 			}
 
 			h1 {
@@ -269,20 +326,45 @@
 			.subtitle {
 				font-size: 1.4rem;
 			}
+
+			.screenshots {
+				gap: 1.5rem;
+			}
+
+			.screenshot {
+				width: 45%;
+				max-width: 240px;
+			}
+
+			.screenshot img {
+				border-top-left-radius: 12%;
+				border-top-right-radius: 12%;
+			}
 		}
 
 		@media (max-width: 480px) {
-			.features {
-				grid-template-columns: 1fr;
-			}
-
 			.container {
 				padding: 1rem;
 			}
 
+			.features {
+				grid-template-columns: 1fr;
+				gap: 1.5rem;
+			}
+
+			.screenshots {
+				flex-direction: column;
+				align-items: center;
+				gap: 2rem;
+			}
+
+			.screenshot {
+				width: 80%;
+				max-width: 280px;
+			}
+
 			.support-section {
 				margin: 3rem auto 1.5rem;
-				padding: 1rem;
 			}
 		}
 	</style>
@@ -323,18 +405,28 @@
 					<div class="feature-text">Set and achieve monthly goals with progress tracking</div>
 				</div>
 			</div>
-			<div class="store-buttons">
-				<a href="https://apps.apple.com/app/habby-bullet-journal/id6740526397">
-					<img alt="Download on the App Store" src="/app-store-badge.png">
+
+			<div class="cta-grid">
+				<a href="https://apps.apple.com/app/habby-bullet-journal/id6740526397" class="cta-button">
+					<img alt="Download on the App Store" src="app-store-badge.png">
+				</a>
+				<div class="cta-button coming-soon">
+					<img alt="Get it on Google Play" src="play-store-badge.png">
+				</div>
+				<a href="https://buymeacoffee.com/habbyapp" target="_blank" class="cta-button support-button">
+					<i data-feather="coffee"></i>
+					Support me!
 				</a>
 			</div>
-		</div>
 
-		<div class="support-section">
-			<a href="https://buymeacoffee.com/habbyapp" target="_blank" class="support-link">
-				<i data-feather="coffee"></i>
-				Support habby
-			</a>
+			<div class="screenshots">
+				<div class="screenshot">
+					<img src="screenshot1.png" alt="Habby app screenshot - Journal View">
+				</div>
+				<div class="screenshot">
+					<img src="screenshot2.png" alt="Habby app screenshot - Monthly Goals">
+				</div>
+			</div>
 		</div>
 
 		<footer>
