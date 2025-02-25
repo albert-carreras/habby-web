@@ -2,7 +2,7 @@
 
 ## Overview
 
-Habby provides comprehensive statistics and metrics to help users visualize their progress in journaling, habit tracking, and goal achievement. The Stats view offers insights into patterns and trends over time.
+habby provides comprehensive statistics and metrics to help users visualize their progress in journaling, habit tracking, and goal achievement. The Stats view offers insights into patterns and trends over time.
 
 ## Features
 
@@ -64,14 +64,14 @@ const calculateAverageRating = (
   const ratingHabits = habits.filter(
     h => h.type === 'rating' && typeof h.value === 'number'
   );
-  
+
   if (ratingHabits.length === 0) return 0;
-  
+
   const sum = ratingHabits.reduce(
     (acc, h) => acc + (h.value as number),
     0
   );
-  
+
   return sum / ratingHabits.length;
 };
 ```
@@ -109,7 +109,7 @@ Statistics are presented with a clean, card-based layout:
       icon="check-circle"
     />
   </Card>
-  
+
   {/* Habit-specific cards */}
   {stats.habits.map(habit => (
     <Card key={habit.id}>

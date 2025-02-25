@@ -2,7 +2,7 @@
 
 ## Overview
 
-Habby prioritizes data ownership and portability with comprehensive import and export functionality. This feature allows users to back up their journal data, migrate between devices, and maintain control of their personal information.
+habby prioritizes data ownership and portability with comprehensive import and export functionality. This feature allows users to back up their journal data, migrate between devices, and maintain control of their personal information.
 
 ## Features
 
@@ -43,7 +43,7 @@ export const handleExport = async (
   try {
     // Create temporary directory
     await ensureTempDirectory();
-    
+
     // Generate export data with images
     const { data, images } = await generateExportData(
       days,
@@ -74,7 +74,7 @@ export const handleExport = async (
       url: tempFilePath,
       title: "Journal Export",
     });
-    
+
     return { success: true };
   } catch (error) {
     // Error handling
@@ -114,12 +114,12 @@ export const handleImport = async (
     const zip = await JSZip.loadAsync(zipContent, { base64: true });
     const journalFile = zip.file("journal.json");
     const journalContent = await journalFile.async("text");
-    
+
     // Parse and validate JSON data
     const importData = JSON.parse(journalContent);
     const structureValidation = validateImportData(importData);
     const consistencyErrors = validateDataConsistency(importData);
-    
+
     // Confirmation dialog
     return new Promise((resolve) => {
       Alert.alert(t("common.alert"), t("settings.importWarningMessage"), [
@@ -228,7 +228,7 @@ async function processImport(
       const base64 = await imageFile.async("base64");
       const dateKey = dateMatch[0];
       const result = await imageStorage.importImage(base64, dateKey);
-      
+
       if (result.success && result.filename) {
         imageMap[oldFilename] = result.filename;
       }

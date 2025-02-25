@@ -2,7 +2,7 @@
 
 ## Overview
 
-Habby implements various performance optimizations to ensure a smooth user experience, even with large datasets and on lower-end devices. This document outlines the key optimizations used throughout the application.
+habby implements various performance optimizations to ensure a smooth user experience, even with large datasets and on lower-end devices. This document outlines the key optimizations used throughout the application.
 
 ## React Component Optimizations
 
@@ -330,17 +330,17 @@ Heavy operations are throttled to prevent excessive CPU usage:
 export const throttle = (func: Function, limit: number) => {
   let inThrottle: boolean;
   let lastResult: any;
-  
+
   return function(this: any, ...args: any[]) {
     if (!inThrottle) {
       inThrottle = true;
       lastResult = func.apply(this, args);
-      
+
       setTimeout(() => {
         inThrottle = false;
       }, limit);
     }
-    
+
     return lastResult;
   };
 };

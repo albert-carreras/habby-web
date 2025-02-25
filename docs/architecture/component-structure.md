@@ -2,7 +2,7 @@
 
 ## Overview
 
-Habby uses a modular component architecture organized by feature and responsibility. This document outlines the
+habby uses a modular component architecture organized by feature and responsibility. This document outlines the
 component structure and describes how UI elements work together.
 
 ## Component Organization

@@ -2,7 +2,7 @@
 
 ## Overview
 
-The daily check-in is the most frequent user journey in Habby. This flow enables users to record their daily reflections, track habits, and optionally add photos to capture moments.
+The daily check-in is the most frequent user journey in habby. This flow enables users to record their daily reflections, track habits, and optionally add photos to capture moments.
 
 ## Flow Diagram
 
@@ -27,7 +27,7 @@ The daily check-in is the most frequent user journey in Habby. This flow enables
 
 ### 1. Opening the App
 
-- User launches Habby app
+- User launches habby app
 - App loads the main timeline view
 - Today's date is highlighted or marked as current
 

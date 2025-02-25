@@ -2,7 +2,7 @@
 
 ## Overview
 
-The onboarding flow introduces new users to Habby's key features and gets them set up with initial preferences. This guided experience helps users understand the app's capabilities and encourages immediate engagement.
+The onboarding flow introduces new users to habby's key features and gets them set up with initial preferences. This guided experience helps users understand the app's capabilities and encourages immediate engagement.
 
 ## Flow Diagram
 

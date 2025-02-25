@@ -2,13 +2,13 @@
 
 ## Overview
 
-Habit tracking is a core feature of Habby, allowing users to monitor up to three habits daily using two different tracking methods. Habits are configured monthly and visualized in the timeline view.
+Habit tracking is a core feature of habby, allowing users to monitor up to three habits daily using two different tracking methods. Habits are configured monthly and visualized in the timeline view.
 
 ## Features
 
 ### Habit Types
 
-Habby supports two types of habit tracking:
+habby supports two types of habit tracking:
 
 1. **Yes/No Toggle**: Simple binary completion tracking
    - Marked as done or not done for the day
@@ -125,9 +125,9 @@ Habits are represented in the timeline with colored dots:
 <XStack gap={4} alignItems="center">
   {habitOrder.map((habitId) => {
     const habit = habits.find((h) => h.id === habitId);
-    
+
     if (!habit) return null;
-    
+
     if (habit.type === "toggle") {
       return (
         <View
@@ -144,7 +144,7 @@ Habits are represented in the timeline with colored dots:
         />
       );
     }
-    
+
     // Rating visualization
     return (
       <View

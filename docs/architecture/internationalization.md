@@ -2,7 +2,7 @@
 
 ## Overview
 
-Habby provides full localization support for 8 languages, allowing users to experience the app in their preferred language. This document details the internationalization architecture and implementation.
+habby provides full localization support for 8 languages, allowing users to experience the app in their preferred language. This document details the internationalization architecture and implementation.
 
 ## Supported Languages
 
@@ -21,7 +21,7 @@ The application supports the following languages:
 
 ### Technology Stack
 
-Habby uses the following libraries for internationalization:
+habby uses the following libraries for internationalization:
 
 - **i18next**: Core internationalization framework
 - **react-i18next**: React bindings for i18next
@@ -138,7 +138,7 @@ import { useTranslation } from 'react-i18next';
 
 const MyComponent = () => {
   const { t } = useTranslation();
-  
+
   return (
     <View>
       <Text>{t('common.today')}</Text>
@@ -156,7 +156,7 @@ For translations with dynamic values, interpolation is used:
 // Translation string
 // "monthYearFormat": "{{month}} {{year}}"
 
-const formattedDate = t('months.monthYearFormat', { 
+const formattedDate = t('months.monthYearFormat', {
   month: t(`months.${monthName.toLowerCase()}`),
   year: date.getFullYear()
 });
@@ -225,8 +225,8 @@ While the current supported languages are LTR, the app is designed to support RT
 
 ```typescript
 // In component styles
-<View style={{ 
-  flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row' 
+<View style={{
+  flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row'
 }}>
   {/* Component content */}
 </View>
@@ -244,17 +244,17 @@ On first launch, the app attempts to detect the user's preferred language:
 const detectLanguage = async () => {
   try {
     const savedLanguage = await AsyncStorage.getItem('user-language');
-    
+
     if (savedLanguage && Object.keys(resources).includes(savedLanguage)) {
       return savedLanguage;
     }
-    
+
     const deviceLocale = Localization.locale.split('-')[0];
-    
+
     if (Object.keys(resources).includes(deviceLocale)) {
       return deviceLocale;
     }
-    
+
     return 'en'; // Default fallback
   } catch (error) {
     return 'en';

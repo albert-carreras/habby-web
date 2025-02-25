@@ -1,8 +1,6 @@
-# Habby - Minimalist Journal & Habit Tracker
+# Documentation
 
-## Documentation
-
-Welcome to the documentation for Habby, a minimalist journaling and habit tracking app built with React Native and Expo.
+Welcome to the documentation for habby, a minimalist journaling and habit tracking app built with React Native and Expo.
 
 This documentation provides comprehensive details about the application's architecture, features, and implementation.
 

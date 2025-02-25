@@ -2,7 +2,7 @@
 
 ## Overview
 
-Habby implements an offline-first architecture with local data storage. This document explains how data flows through the application and how it's stored.
+habby implements an offline-first architecture with local data storage. This document explains how data flows through the application and how it's stored.
 
 ## Data Flow
 
@@ -42,7 +42,7 @@ When a user creates a journal entry:
 
 ### Primary Storage
 
-Habby uses React Native's `AsyncStorage` for persisting data:
+habby uses React Native's `AsyncStorage` for persisting data:
 
 - **Day Entries**: Stored in useDayStore
 - **Habits**: Stored in useHabitStore
@@ -87,7 +87,7 @@ const takePhoto = useCallback(async () => {
       allowsEditing: true,
       quality: 0.8,
     });
-    
+
     // Process and store image
     if (!result.canceled) {
       const processedImage = await processImage(result.assets[0].uri);
@@ -102,7 +102,7 @@ const takePhoto = useCallback(async () => {
 
 ## Data Export and Import
 
-Habby implements data portability with export/import functionality:
+habby implements data portability with export/import functionality:
 
 ### Export Process
 1. Data is collected from all stores
@@ -131,16 +131,16 @@ export const handleExport = async (
     monthlyGoals,
     imageMap,
   };
-  
+
   // Create ZIP file
   const zip = new JSZip();
   zip.file("journal.json", JSON.stringify(data));
-  
+
   // Add images to ZIP
   Object.entries(images).forEach(([path, base64]) => {
     zip.file(path, base64, { base64: true });
   });
-  
+
   // Generate and share ZIP
   const zipContent = await zip.generateAsync({ type: "base64" });
   await Share.share({ url: zipFilePath });
@@ -149,7 +149,7 @@ export const handleExport = async (
 
 ## Data Windows and Pagination
 
-To optimize performance with large datasets, Habby implements a window-based approach to data loading:
+To optimize performance with large datasets, habby implements a window-based approach to data loading:
 
 1. Only a limited window of dates is rendered at once
 2. As user scrolls, additional data is loaded
@@ -171,7 +171,7 @@ const handleEndReached = useCallback(() => {
         endDate: nextWindow.endDate,
       };
     });
-    
+
     isLoadingRef.current = false;
   }, 100);
 }, []);

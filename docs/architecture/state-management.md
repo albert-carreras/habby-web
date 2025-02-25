@@ -2,7 +2,7 @@
 
 ## Overview
 
-Habby uses Zustand as its primary state management solution. Zustand was chosen for its simplicity, minimal boilerplate, and built-in persistence capabilities. This document details the state management architecture in the application.
+habby uses Zustand as its primary state management solution. Zustand was chosen for its simplicity, minimal boilerplate, and built-in persistence capabilities. This document details the state management architecture in the application.
 
 ## Store Organization
 

@@ -2,7 +2,7 @@
 
 ## Overview
 
-Habby offers extensive customization options to enhance user experience and accessibility. This includes theme selection, language preferences, and various settings to make the app more personal and usable.
+habby offers extensive customization options to enhance user experience and accessibility. This includes theme selection, language preferences, and various settings to make the app more personal and usable.
 
 ## Features
 
@@ -44,19 +44,19 @@ Themes are implemented through the `themeProvider` store:
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   const systemColorScheme = useColorScheme();
   const [themeMode, setThemeModeState] = useState<ThemeMode>("system");
-  
+
   const isDark = useMemo(() => {
     if (themeMode === "system") {
       return systemColorScheme === "dark";
     }
     return themeMode.startsWith("dark");
   }, [themeMode, systemColorScheme]);
-  
+
   const theme = useMemo(() => {
     // Theme selection logic based on mode
     // Returns appropriate theme object
   }, [themeMode, systemColorScheme]);
-  
+
   // Provider implementation
 };
 ```
@@ -109,7 +109,7 @@ import { useTranslation } from 'react-i18next';
 
 const MyComponent = () => {
   const { t } = useTranslation();
-  
+
   return (
     <View>
       <Text>{t('common.today')}</Text>

@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Habby follows a modern React Native architecture focused on simplicity, performance, and offline-first design. This document provides a high-level overview of the application's structure and organization.
+habby follows a modern React Native architecture focused on simplicity, performance, and offline-first design. This document provides a high-level overview of the application's structure and organization.
 
 ## Directory Structure
 
@@ -32,7 +32,7 @@ Habby follows a modern React Native architecture focused on simplicity, performa
 
 ### State Management
 
-Habby uses Zustand for state management, with multiple specialized stores:
+habby uses Zustand for state management, with multiple specialized stores:
 
 - **useDayStore**: Handles daily journal entries and habit tracking data
 - **useHabitStore**: Manages habit definitions and configurations
@@ -74,7 +74,7 @@ All without navigating away from the main timeline view.
 
 ### Navigation
 
-Habby uses Expo Router for navigation with a simple structure:
+habby uses Expo Router for navigation with a simple structure:
 
 - Main journal timeline (`index.tsx`)
 - Statistics view (`stats.tsx`)

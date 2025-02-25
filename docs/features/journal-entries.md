@@ -2,7 +2,7 @@
 
 ## Overview
 
-Journal entries are the core feature of Habby, allowing users to record daily reflections, track habits, and attach photos in a minimalist interface.
+Journal entries are the core feature of habby, allowing users to record daily reflections, track habits, and attach photos in a minimalist interface.
 
 ## Features
 

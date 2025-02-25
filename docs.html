@@ -18,7 +18,7 @@
 	<link href="https://habby.day/docs" rel="canonical">
 	<link href="favicon.ico" rel="icon" type="image/png">
 	<link href="apple-touch-icon.png" rel="apple-touch-icon">
-	
+
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Amiri:ital@0;1&family=Inter:wght@200;400;600&display=swap" rel="stylesheet">
 	<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
@@ -87,17 +87,17 @@
 			color: var(--color-text-primary);
 			letter-spacing: -0.02em;
 		}
-        
+
         .docs-container {
             display: flex;
             gap: 3rem; /* Increased from 2rem for better separation */
         }
-        
+
         .docs-sidebar {
             width: 250px;
             flex-shrink: 0;
         }
-        
+
         .docs-content {
             flex: 1;
             background-color: #fff;
@@ -107,52 +107,52 @@
             min-height: 500px; /* Increased from 400px */
             max-width: 900px; /* Added max-width to prevent stretching too wide */
         }
-        
+
         .docs-content img {
             max-width: 100%;
             border-radius: 4px;
             margin: 1.5rem 0;
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
-        
+
         .docs-content h1 {
             font-size: 2.5rem;
             margin-bottom: 1.5rem;
             color: var(--color-text-primary);
         }
-        
+
         .docs-content h2 {
             font-size: 1.8rem;
             margin-top: 2rem;
             margin-bottom: 1rem;
             color: var(--color-text-primary);
         }
-        
+
         .docs-content h3 {
             font-size: 1.4rem;
             margin-top: 1.5rem;
             margin-bottom: 1rem;
             color: var(--color-text-primary);
         }
-        
+
         .docs-content p {
             margin-bottom: 1.2rem;
             line-height: 1.7;
         }
-        
+
         .docs-content ul, .docs-content ol {
             margin-bottom: 1.2rem;
             padding-left: 2.5rem; /* Increased from default */
         }
-        
+
         .docs-content li {
             margin-bottom: 0.5rem;
         }
-        
+
         .docs-content ul li::marker {
             color: var(--color-accent);
         }
-        
+
         .docs-content pre {
             background-color: #f5f5f5;
             padding: 1.2rem;
@@ -161,7 +161,7 @@
             margin: 1.5rem 0;
             box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
         }
-        
+
         .docs-content code {
             background-color: #f5f5f5;
             padding: 0.2rem 0.4rem;
@@ -170,13 +170,13 @@
             font-size: 0.9em;
             color: #d23669;
         }
-        
+
         .docs-content pre code {
             padding: 0;
             background-color: transparent;
             color: var(--color-text-primary);
         }
-        
+
         .docs-content table {
             border-collapse: collapse;
             width: 100%;
@@ -185,23 +185,23 @@
             overflow: hidden;
             box-shadow: 0 1px 4px rgba(0,0,0,0.05);
         }
-        
+
         .docs-content th, .docs-content td {
             border: 1px solid #ddd;
             padding: 0.8rem 1rem;
             text-align: left;
         }
-        
+
         .docs-content th {
             background-color: #f5f5f5;
             font-weight: 500;
             color: var(--color-accent);
         }
-        
+
         .docs-content tr:nth-child(even) {
             background-color: #f9f9f9;
         }
-        
+
         .docs-content blockquote {
             border-left: 4px solid var(--color-primary);
             padding: 1rem 1.5rem;
@@ -210,11 +210,11 @@
             border-radius: 0 6px 6px 0;
             color: var(--color-text-secondary);
         }
-        
+
         .docs-content blockquote p:last-child {
             margin-bottom: 0;
         }
-        
+
         /* Mermaid diagram styling */
         .mermaid {
             margin: 2rem 0;
@@ -225,36 +225,36 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
             overflow-x: auto;
         }
-        
+
         /* Fix Mermaid dark theme compatibility */
-        .mermaid .label { 
+        .mermaid .label {
             color: var(--color-text-primary);
             font-family: 'Inter', sans-serif;
         }
-        
-        .mermaid .node rect, 
-        .mermaid .node circle, 
-        .mermaid .node ellipse, 
-        .mermaid .node polygon, 
+
+        .mermaid .node rect,
+        .mermaid .node circle,
+        .mermaid .node ellipse,
+        .mermaid .node polygon,
         .mermaid .node path {
             fill: #f5f5f5;
             stroke: var(--color-accent);
         }
-        
+
         .docs-sidebar ul {
             list-style: none;
             padding-left: 0;
         }
-        
+
         .docs-sidebar .nested-list {
             padding-left: 1.2rem; /* Increased from 1rem */
             margin-bottom: 1.2rem;
         }
-        
+
         .docs-sidebar li {
             margin-bottom: 0.5rem;
         }
-        
+
         .docs-sidebar a {
             color: var(--color-text-primary);
             text-decoration: none;
@@ -264,23 +264,23 @@
             transition: all 0.2s ease;
             font-size: 0.95rem;
         }
-        
+
         .docs-sidebar a:hover {
             background-color: rgba(182, 199, 170, 0.15);
             transform: translateX(2px);
         }
-        
+
         .docs-sidebar a.active {
             background-color: var(--color-primary);
             color: #fff;
             font-weight: 500;
         }
-        
+
         .docs-sidebar .section-header {
             margin-top: 1.8rem; /* Increased from 1.5rem */
             margin-bottom: 0.8rem;
         }
-        
+
         .docs-sidebar .section-header h4 {
             font-size: 1rem;
             color: var(--color-accent);
@@ -308,7 +308,7 @@
 		footer a:hover {
 			color: var(--color-accent);
 		}
-        
+
         .back-to-home {
             display: inline-flex;
             align-items: center;
@@ -322,12 +322,12 @@
             border-radius: 6px;
             background-color: rgba(255,255,255,0.5);
         }
-        
+
         .back-to-home:hover {
             background-color: rgba(255,255,255,0.8);
             transform: translateY(-2px);
         }
-        
+
         .error-message {
             padding: 1.5rem;
             background-color: rgba(255, 0, 0, 0.1);
@@ -335,14 +335,14 @@
             margin-bottom: 1.5rem;
             border-radius: 0 6px 6px 0;
         }
-        
+
         .loading-indicator {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 200px;
         }
-        
+
         .loading-spinner {
             border: 4px solid rgba(0, 0, 0, 0.1);
             border-left-color: var(--color-primary);
@@ -351,7 +351,7 @@
             height: 30px;
             animation: spin 1s linear infinite;
         }
-        
+
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
@@ -361,43 +361,43 @@
                 max-width: 100%;
                 padding: 1.5rem;
             }
-            
+
             .docs-content {
                 padding: 2rem;
             }
         }
-        
+
 		@media (max-width: 768px) {
 			.container {
 				padding: 1rem;
 			}
-            
+
             .docs-container {
                 flex-direction: column;
                 gap: 1.5rem;
             }
-            
+
             .docs-sidebar {
                 width: 100%;
             }
-            
+
             .docs-content {
                 padding: 1.5rem;
                 max-width: 100%;
             }
-            
+
             h1 {
                 font-size: 2.2rem;
             }
-            
+
             .docs-content h1 {
                 font-size: 2rem;
             }
-            
+
             .docs-content h2 {
                 font-size: 1.5rem;
             }
-            
+
             .docs-content h3 {
                 font-size: 1.2rem;
             }
@@ -409,7 +409,7 @@
 	<div class="container">
 		<div class="header">
 			<div class="app-icon">
-				<img alt="Habby app icon" src="icon.png">
+				<img alt="habby app icon" src="icon.png">
 			</div>
 			<h1>habby documentation</h1>
             <a href="index.html" class="back-to-home">
@@ -417,7 +417,7 @@
                 Back to homepage
             </a>
 		</div>
-        
+
         <div class="docs-container">
             <div class="docs-sidebar" id="sidebar">
                 <h3>Documentation</h3>
@@ -427,7 +427,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="docs-content" id="content">
                 <div class="loading-indicator">
                     <div class="loading-spinner"></div>
@@ -436,7 +436,7 @@
         </div>
 
 		<footer>
-			<p>© 2025 Habby. • <a target="_blank" href="https://bored.cat">Albert C</a> • <a
+			<p>© 2025 habby. • <a target="_blank" href="https://bored.cat">Albert C</a> • <a
 					href="privacy-policy.html">Privacy
 					Policy</a></p>
 		</footer>
@@ -454,7 +454,7 @@
             const content = document.getElementById('content');
             const sidebarContent = document.getElementById('sidebar-content');
             let activeLink = null;
-            
+
             // Structure that matches the actual documentation folders
             const docStructure = {
                 "overview": {
@@ -562,29 +562,29 @@
                     }
                 }
             };
-            
+
             // Build sidebar from structure
             function buildSidebar() {
                 let sidebarHTML = '<ul>';
-                
+
                 // Add overview as first item
                 sidebarHTML += `<li><a href="#" class="doc-link" data-path="${docStructure.overview.path}">${docStructure.overview.label}</a></li>`;
-                
+
                 // Add remaining sections
                 Object.entries(docStructure).forEach(([key, section]) => {
                     if (key === 'overview') return; // Skip overview as we already added it
-                    
+
                     if (section.children) {
                         sidebarHTML += `
                             <li class="section-header"><h4>${section.label}</h4></li>
                             <li>
                                 <ul class="nested-list">
                         `;
-                        
+
                         Object.entries(section.children).forEach(([childKey, child]) => {
                             sidebarHTML += `<li><a href="#" class="doc-link" data-path="${child.path}">${child.label}</a></li>`;
                         });
-                        
+
                         sidebarHTML += `
                                 </ul>
                             </li>
@@ -593,10 +593,10 @@
                         sidebarHTML += `<li><a href="#" class="doc-link" data-path="${section.path}">${section.label}</a></li>`;
                     }
                 });
-                
+
                 sidebarHTML += '</ul>';
                 sidebarContent.innerHTML = sidebarHTML;
-                
+
                 // Add event listeners to links
                 document.querySelectorAll('.doc-link').forEach(link => {
                     link.addEventListener('click', (e) => {
@@ -605,7 +605,7 @@
                     });
                 });
             }
-            
+
             // Load a document
             function loadDocument(path, linkElement) {
                 // Update active link
@@ -616,14 +616,14 @@
                     linkElement.classList.add('active');
                     activeLink = linkElement;
                 }
-                
+
                 // Show loading indicator
                 content.innerHTML = `
                     <div class="loading-indicator">
                         <div class="loading-spinner"></div>
                     </div>
                 `;
-                
+
                 // For GitHub Pages deployment
                 fetch(`docs/${path}`)
                     .then(response => {
@@ -636,16 +636,16 @@
                         // Use marked to convert markdown to HTML
                         const html = marked.parse(markdown);
                         content.innerHTML = html;
-                        
+
                         // Fix relative links
                         fixLinks();
-                        
+
                         // Fix relative image paths
                         fixImagePaths(path);
-                        
+
                         // Initialize Mermaid diagrams
                         processMermaidDiagrams();
-                        
+
                         // Update window location with hash
                         const docId = path.replace(/\//g, '-').replace('.md', '');
                         history.replaceState(null, null, `#${docId}`);
@@ -661,7 +661,7 @@
                         console.error('Error loading document:', error);
                     });
             }
-            
+
             // Fix relative links in content
             function fixLinks() {
                 const links = content.querySelectorAll('a');
@@ -672,7 +672,7 @@
                         link.setAttribute('data-path', href);
                         link.setAttribute('href', '#');
                         link.classList.add('doc-link');
-                        
+
                         // Add click event
                         link.addEventListener('click', (e) => {
                             e.preventDefault();
@@ -681,7 +681,7 @@
                     }
                 });
             }
-            
+
             // Fix relative image paths in content
             function fixImagePaths(currentPath) {
                 const images = content.querySelectorAll('img');
@@ -691,7 +691,7 @@
                         // Get directory from current path
                         const dir = currentPath.substring(0, currentPath.lastIndexOf('/') + 1);
                         let imgPath = src;
-                        
+
                         // Handle relative paths
                         if (src.startsWith('./')) {
                             imgPath = src.substring(2);
@@ -702,50 +702,50 @@
                             dirParts.pop(); // Remove empty string after last slash
                             imgPath = dirParts.join('/') + '/' + src.substring(3);
                         }
-                        
+
                         img.setAttribute('src', `docs/${dir}${imgPath}`);
                     }
                 });
             }
-            
+
             // Process Mermaid diagrams in the content
             function processMermaidDiagrams() {
                 // Look for pre blocks with mermaid class
                 const mermaidBlocks = content.querySelectorAll('pre code.language-mermaid');
-                
+
                 mermaidBlocks.forEach((block, index) => {
                     // Create a div for mermaid
                     const mermaidDiv = document.createElement('div');
                     mermaidDiv.className = 'mermaid';
                     mermaidDiv.id = `mermaid-diagram-${index}`;
                     mermaidDiv.innerHTML = block.textContent;
-                    
+
                     // Replace the pre element with the mermaid div
                     const preElement = block.parentElement;
                     preElement.parentElement.replaceChild(mermaidDiv, preElement);
                 });
-                
+
                 // Also look for markdown code blocks that might be transformed differently
                 const potentialMermaidBlocks = content.querySelectorAll('pre > code:not(.language-mermaid)');
                 potentialMermaidBlocks.forEach((block) => {
-                    if (block.textContent.trim().startsWith('graph ') || 
-                        block.textContent.trim().startsWith('sequenceDiagram') || 
-                        block.textContent.trim().startsWith('classDiagram') || 
-                        block.textContent.trim().startsWith('stateDiagram') || 
-                        block.textContent.trim().startsWith('gantt') || 
+                    if (block.textContent.trim().startsWith('graph ') ||
+                        block.textContent.trim().startsWith('sequenceDiagram') ||
+                        block.textContent.trim().startsWith('classDiagram') ||
+                        block.textContent.trim().startsWith('stateDiagram') ||
+                        block.textContent.trim().startsWith('gantt') ||
                         block.textContent.trim().startsWith('pie')) {
-                            
+
                         // Create a div for mermaid
                         const mermaidDiv = document.createElement('div');
                         mermaidDiv.className = 'mermaid';
                         mermaidDiv.innerHTML = block.textContent;
-                        
+
                         // Replace the pre element with the mermaid div
                         const preElement = block.parentElement;
                         preElement.parentElement.replaceChild(mermaidDiv, preElement);
                     }
                 });
-                
+
                 // Render all mermaid diagrams
                 setTimeout(() => {
                     try {
@@ -755,7 +755,7 @@
                     }
                 }, 100);
             }
-            
+
             // Load initial document based on hash or default to README.md
             function loadInitialDocument() {
                 const hash = window.location.hash.substring(1);
@@ -763,13 +763,13 @@
                     // Convert hash back to path
                     const parts = hash.split('-');
                     let path;
-                    
+
                     if (parts[0] === 'README') {
                         path = 'README.md';
                     } else {
                         path = parts.join('/') + '.md';
                     }
-                    
+
                     // Find matching link
                     const link = document.querySelector(`[data-path="${path}"]`);
                     if (link) {
@@ -781,14 +781,14 @@
                     loadDocument('README.md', document.querySelector('[data-path="README.md"]'));
                 }
             }
-            
+
             // Initialize
             buildSidebar();
             setTimeout(() => {
                 loadInitialDocument();
             }, 100);
         });
-        
+
         // Initialize Feather icons
         feather.replace();
     </script>

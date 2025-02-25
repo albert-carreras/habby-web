@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document provides detailed reference information for Habby's key components, including their purpose, props, and implementation details. Use this as a guide when modifying existing components or developing new features.
+This document provides detailed reference information for habby's key components, including their purpose, props, and implementation details. Use this as a guide when modifying existing components or developing new features.
 
 ## Core Screen Components
 
