@@ -4,7 +4,7 @@
 
 Welcome to the documentation for Habby, a minimalist journaling and habit tracking app built with React Native and Expo.
 
-This documentation provides comprehensive details about the application's architecture, features, and implementation. It is designed to help developers understand the codebase and make contributions.
+This documentation provides comprehensive details about the application's architecture, features, and implementation.
 
 ### Contents
 
@@ -35,18 +35,3 @@ This documentation provides comprehensive details about the application's archit
   - [App Architecture Diagram](./diagrams/app-architecture-diagram.md)
   - [User Journey Map](./diagrams/user-journey-map.md)
   - [Data Flow Diagrams](./diagrams/data-flow-diagrams.md)
-
-- **[Troubleshooting](./troubleshooting.md)**: Solutions for common issues
-- **[Roadmap](./roadmap.md)**: Future development plans
-
-## Getting Started
-
-To get started with development:
-
-1. Clone the repository
-2. Install dependencies with `yarn install`
-3. Start the development server with `yarn start`
-
-## Contributing
-
-Please see the [Contributing Guide](../CONTRIBUTING.md) for details on how to contribute to the project.
