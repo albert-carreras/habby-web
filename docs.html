@@ -215,6 +215,32 @@
             margin-bottom: 0;
         }
         
+        /* Mermaid diagram styling */
+        .mermaid {
+            margin: 2rem 0;
+            text-align: center;
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            overflow-x: auto;
+        }
+        
+        /* Fix Mermaid dark theme compatibility */
+        .mermaid .label { 
+            color: var(--color-text-primary);
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .mermaid .node rect, 
+        .mermaid .node circle, 
+        .mermaid .node ellipse, 
+        .mermaid .node polygon, 
+        .mermaid .node path {
+            fill: #f5f5f5;
+            stroke: var(--color-accent);
+        }
+        
         .docs-sidebar ul {
             list-style: none;
             padding-left: 0;
@@ -418,6 +444,13 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Initialize Mermaid
+            mermaid.initialize({
+                startOnLoad: false,
+                theme: 'neutral',
+                securityLevel: 'loose',
+                fontFamily: 'Inter, sans-serif'
+            });
             const content = document.getElementById('content');
             const sidebarContent = document.getElementById('sidebar-content');
             let activeLink = null;
@@ -610,6 +643,9 @@
                         // Fix relative image paths
                         fixImagePaths(path);
                         
+                        // Initialize Mermaid diagrams
+                        processMermaidDiagrams();
+                        
                         // Update window location with hash
                         const docId = path.replace(/\//g, '-').replace('.md', '');
                         history.replaceState(null, null, `#${docId}`);
@@ -670,6 +706,54 @@
                         img.setAttribute('src', `docs/${dir}${imgPath}`);
                     }
                 });
+            }
+            
+            // Process Mermaid diagrams in the content
+            function processMermaidDiagrams() {
+                // Look for pre blocks with mermaid class
+                const mermaidBlocks = content.querySelectorAll('pre code.language-mermaid');
+                
+                mermaidBlocks.forEach((block, index) => {
+                    // Create a div for mermaid
+                    const mermaidDiv = document.createElement('div');
+                    mermaidDiv.className = 'mermaid';
+                    mermaidDiv.id = `mermaid-diagram-${index}`;
+                    mermaidDiv.innerHTML = block.textContent;
+                    
+                    // Replace the pre element with the mermaid div
+                    const preElement = block.parentElement;
+                    preElement.parentElement.replaceChild(mermaidDiv, preElement);
+                });
+                
+                // Also look for markdown code blocks that might be transformed differently
+                const potentialMermaidBlocks = content.querySelectorAll('pre > code:not(.language-mermaid)');
+                potentialMermaidBlocks.forEach((block) => {
+                    if (block.textContent.trim().startsWith('graph ') || 
+                        block.textContent.trim().startsWith('sequenceDiagram') || 
+                        block.textContent.trim().startsWith('classDiagram') || 
+                        block.textContent.trim().startsWith('stateDiagram') || 
+                        block.textContent.trim().startsWith('gantt') || 
+                        block.textContent.trim().startsWith('pie')) {
+                            
+                        // Create a div for mermaid
+                        const mermaidDiv = document.createElement('div');
+                        mermaidDiv.className = 'mermaid';
+                        mermaidDiv.innerHTML = block.textContent;
+                        
+                        // Replace the pre element with the mermaid div
+                        const preElement = block.parentElement;
+                        preElement.parentElement.replaceChild(mermaidDiv, preElement);
+                    }
+                });
+                
+                // Render all mermaid diagrams
+                setTimeout(() => {
+                    try {
+                        mermaid.init(undefined, document.querySelectorAll('.mermaid'));
+                    } catch (error) {
+                        console.error('Error rendering mermaid diagrams:', error);
+                    }
+                }, 100);
             }
             
             // Load initial document based on hash or default to README.md
