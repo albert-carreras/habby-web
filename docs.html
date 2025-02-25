@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<title>habby - Documentation</title>
+
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-3FXEQKVEKL"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+		gtag('config', 'G-3FXEQKVEKL');
+	</script>
+
+	<meta content="Documentation for habby - a beautiful, distraction-free digital bullet journal and habit tracking app." name="description">
+	<link href="https://habby.day/docs" rel="canonical">
+	<link href="favicon.ico" rel="icon" type="image/png">
+	<link href="apple-touch-icon.png" rel="apple-touch-icon">
+	
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Amiri:ital@0;1&family=Inter:wght@200;400;600&display=swap" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js"></script>
+
+	<style>
+		:root {
+			--color-primary: #B6C7AA;
+			--color-secondary: #F6E6CB;
+			--color-accent: #65647C;
+			--color-text-primary: #4A4947;
+			--color-text-secondary: #686764;
+			--color-1: #e4a0a6;
+			--color-2: #d4a0b6;
+			--color-3: #c4a0c6;
+			--color-4: #b4a0d6;
+			--color-5: #a4a0e6;
+		}
+
+		* {
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+		}
+
+		body {
+			font-family: 'Inter', sans-serif;
+			background-color: var(--color-secondary);
+			color: var(--color-text-primary);
+			line-height: 1.6;
+		}
+
+		.container {
+			max-width: 1000px;
+			margin: 0 auto;
+			padding: 2rem;
+		}
+
+		.header {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 1rem;
+			margin-bottom: 2rem;
+		}
+
+		.app-icon {
+			width: 80px;
+			height: 80px;
+			border-radius: 20px;
+			overflow: hidden;
+		}
+
+		.app-icon img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		h1 {
+			font-family: 'Amiri', serif;
+			font-size: 3rem;
+			font-weight: bold;
+			margin: 0;
+			color: var(--color-text-primary);
+			letter-spacing: -0.02em;
+		}
+        
+        .docs-container {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .docs-sidebar {
+            width: 250px;
+            flex-shrink: 0;
+        }
+        
+        .docs-content {
+            flex: 1;
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .docs-content img {
+            max-width: 100%;
+        }
+        
+        .docs-content h2 {
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .docs-content h3 {
+            margin-top: 1.2rem;
+            margin-bottom: 0.8rem;
+        }
+        
+        .docs-sidebar ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .docs-sidebar li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .docs-sidebar a {
+            color: var(--color-text-primary);
+            text-decoration: none;
+            display: block;
+            padding: 0.5rem;
+            border-radius: 6px;
+            transition: background-color 0.2s;
+        }
+        
+        .docs-sidebar a:hover {
+            background-color: rgba(0,0,0,0.05);
+        }
+        
+        .docs-sidebar a.active {
+            background-color: var(--color-primary);
+            color: #fff;
+        }
+        
+        .docs-sidebar .section-header {
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .docs-sidebar .section-header h4 {
+            font-size: 1rem;
+            color: var(--color-accent);
+            margin: 0;
+            padding: 0;
+            opacity: 0.8;
+        }
+
+		footer {
+			margin-top: 2rem;
+			color: var(--color-text-secondary);
+			font-size: 0.9rem;
+            text-align: center;
+		}
+
+		footer a {
+			color: var(--color-text-secondary);
+			text-decoration: none;
+			border-bottom: 1px solid currentColor;
+		}
+
+		footer a:hover {
+			opacity: 0.8;
+		}
+
+		@media (max-width: 768px) {
+			.container {
+				padding: 1.5rem;
+			}
+            
+            .docs-container {
+                flex-direction: column;
+            }
+            
+            .docs-sidebar {
+                width: 100%;
+            }
+            
+            .docs-content {
+                padding: 1.5rem;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<div class="header">
+			<div class="app-icon">
+				<img alt="Habby app icon" src="icon.png">
+			</div>
+			<h1>habby documentation</h1>
+            <p><a href="index.html">← Back to homepage</a></p>
+		</div>
+        
+        <div class="docs-container">
+            <div class="docs-sidebar" id="sidebar">
+                <!-- This will be populated by sidebar.js -->
+                <h3>Documentation</h3>
+                <ul>
+                    <li><a href="#" class="doc-link" data-doc="README.md">Overview</a></li>
+                    <li><a href="#" class="doc-link" data-doc="SUMMARY.md">Summary</a></li>
+                    <li><a href="#" class="doc-link" data-doc="roadmap.md">Roadmap</a></li>
+                    <li><a href="#" class="doc-link" data-doc="troubleshooting.md">Troubleshooting</a></li>
+                    
+                    <li class="section-header"><h4>Architecture</h4></li>
+                    <li><a href="#" class="doc-link" data-doc="architecture/overview.md">Architecture Overview</a></li>
+                    <li><a href="#" class="doc-link" data-doc="architecture/state-management.md">State Management</a></li>
+                    <li><a href="#" class="doc-link" data-doc="architecture/component-structure.md">Component Structure</a></li>
+                    <li><a href="#" class="doc-link" data-doc="architecture/data-flow.md">Data Flow</a></li>
+                    <li><a href="#" class="doc-link" data-doc="architecture/component-reference.md">Component Reference</a></li>
+                    <li><a href="#" class="doc-link" data-doc="architecture/performance-optimizations.md">Performance Optimizations</a></li>
+                    <li><a href="#" class="doc-link" data-doc="architecture/internationalization.md">Internationalization</a></li>
+                    
+                    <li class="section-header"><h4>Features</h4></li>
+                    <li><a href="#" class="doc-link" data-doc="features/journal-entries.md">Journal Entries</a></li>
+                    <li><a href="#" class="doc-link" data-doc="features/habit-tracking.md">Habit Tracking</a></li>
+                    <li><a href="#" class="doc-link" data-doc="features/monthly-goals.md">Monthly Goals</a></li>
+                    <li><a href="#" class="doc-link" data-doc="features/statistics.md">Statistics</a></li>
+                    <li><a href="#" class="doc-link" data-doc="features/customization.md">Customization</a></li>
+                    <li><a href="#" class="doc-link" data-doc="features/data-management.md">Data Management</a></li>
+                    
+                    <li class="section-header"><h4>User Flows</h4></li>
+                    <li><a href="#" class="doc-link" data-doc="user-flows/daily-checkin.md">Daily Check-in</a></li>
+                    <li><a href="#" class="doc-link" data-doc="user-flows/monthly-habit-management.md">Monthly Habit Management</a></li>
+                    <li><a href="#" class="doc-link" data-doc="user-flows/goal-setting.md">Goal Setting</a></li>
+                    <li><a href="#" class="doc-link" data-doc="user-flows/onboarding.md">Onboarding</a></li>
+                    
+                    <li class="section-header"><h4>Diagrams</h4></li>
+                    <li><a href="#" class="doc-link" data-doc="diagrams/app-architecture-diagram.md">App Architecture</a></li>
+                    <li><a href="#" class="doc-link" data-doc="diagrams/user-journey-map.md">User Journey Map</a></li>
+                    <li><a href="#" class="doc-link" data-doc="diagrams/data-flow-diagrams.md">Data Flow Diagrams</a></li>
+                </ul>
+            </div>
+            
+            <div class="docs-content" id="content">
+                <!-- Content will be loaded here -->
+                <p>Please select a document from the sidebar.</p>
+            </div>
+        </div>
+
+		<footer>
+			<p>© 2025 Habby. • <a target="_blank" href="https://bored.cat">Albert C</a> • <a
+					href="privacy-policy.html">Privacy
+					Policy</a></p>
+		</footer>
+	</div>
+
+    <script>
+        // Update sidebar based on available documentation
+        document.addEventListener('DOMContentLoaded', () => {
+            const content = document.getElementById('content');
+            const sidebar = document.getElementById('sidebar');
+            
+            // Generate navigation from your structure
+            // For local testing, we can hardcode the structure
+            sidebar.innerHTML = `
+                <h3>Documentation</h3>
+                <ul>
+                    <li><a href="#" class="doc-link" data-doc="README.md">Overview</a></li>
+                    <li><a href="#" class="doc-link" data-doc="SUMMARY.md">Summary</a></li>
+                    <li><a href="#" class="doc-link" data-doc="roadmap.md">Roadmap</a></li>
+                    <li><a href="#" class="doc-link" data-doc="troubleshooting.md">Troubleshooting</a></li>
+                    <li>
+                        <h4>Architecture</h4>
+                        <ul>
+                            <li><a href="#" class="doc-link" data-doc="architecture/overview.md">Overview</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h4>Features</h4>
+                        <ul>
+                            <li><a href="#" class="doc-link" data-doc="features/journal-entries.md">Journal Entries</a></li>
+                            <li><a href="#" class="doc-link" data-doc="features/habit-tracking.md">Habit Tracking</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            `;
+            
+            // Handle clicks on documentation links
+            const docLinks = document.querySelectorAll('.doc-link');
+            docLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    
+                    // Remove active class from all links
+                    docLinks.forEach(l => l.classList.remove('active'));
+                    
+                    // Add active class to clicked link
+                    link.classList.add('active');
+                    
+                    const docPath = link.getAttribute('data-doc');
+                    
+                    // For GitHub Pages, use fetch for loading content
+                    if (window.location.protocol.includes('http')) {
+                        fetch(`docs/${docPath}`)
+                            .then(response => {
+                                if (!response.ok) {
+                                    throw new Error('Document not found');
+                                }
+                                return response.text();
+                            })
+                            .then(text => {
+                                content.innerHTML = marked.parse(text);
+                                // Fix relative image paths
+                                fixImagePaths();
+                            })
+                            .catch(error => {
+                                content.innerHTML = `<p>Error loading document: ${error.message}</p>`;
+                            });
+                    } else {
+                        // For local file:// testing - this message guides users
+                        content.innerHTML = `
+                            <h2>Local Testing</h2>
+                            <p>When testing locally, you'll need to:</p>
+                            <ol>
+                                <li>Use a local server to properly view documentation</li>
+                                <li>Or push to GitHub Pages to see the full functionality</li>
+                            </ol>
+                            <p>You're trying to view: <code>docs/${docPath}</code></p>
+                        `;
+                    }
+                });
+            });
+
+            // Function to fix relative image paths in content
+            function fixImagePaths() {
+                const images = content.querySelectorAll('img');
+                images.forEach(img => {
+                    const src = img.getAttribute('src');
+                    if (src && !src.startsWith('http') && !src.startsWith('/')) {
+                        img.setAttribute('src', `docs/${src}`);
+                    }
+                });
+            }
+            
+            // Load README.md by default if available
+            const readmeLink = document.querySelector('[data-doc="README.md"]');
+            if (readmeLink) {
+                readmeLink.click();
+            }
+        });
+        
+        // Initialize Feather icons
+        feather.replace();
+    </script>
+</body>
+
+</html>
