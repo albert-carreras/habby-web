@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Grabby - Privacy Policy</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@200;400;600&display=swap"
+          rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #B6C7AA;
+            --color-secondary: #F6E6CB;
+            --color-accent: #65647C;
+            --color-text-primary: #4A4947;
+            --color-text-secondary: #686764;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-secondary);
+            color: var(--color-text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 2.5rem;
+            font-weight: normal;
+            margin: 0;
+            color: var(--color-text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.5rem;
+            font-weight: normal;
+            margin: 2rem 0 1rem;
+            color: var(--color-text-primary);
+        }
+
+        .content {
+            background-color: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .last-updated {
+            color: var(--color-text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+        }
+
+        ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        a {
+            color: var(--color-accent);
+            text-decoration: none;
+            border-bottom: 1px solid currentColor;
+        }
+
+        a:hover {
+            opacity: 0.8;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            border-bottom: 1px solid currentColor;
+        }
+
+        .back-link:hover {
+            opacity: 0.8;
+        }
+
+        footer {
+            margin-top: 4rem;
+            text-align: center;
+            color: var(--color-text-secondary);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .content {
+                padding: 2rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>Grabby Privacy Policy</h1>
+    </div>
+
+    <div class="content">
+        <div class="last-updated">Last updated: February 2, 2025</div>
+
+        <h2>Our Commitment to Privacy</h2>
+        <p>Grabby is designed with privacy and simplicity in mind. We collect only the minimum information necessary to provide you with a collaborative grocery list experience. This Privacy Policy explains what information we collect, how we use it, and your rights regarding your data.</p>
+
+        <h2>Information We Collect</h2>
+        <p>Grabby collects the following information to provide core app functionality:</p>
+        <ul>
+            <li>Grocery list items (names and completion status)</li>
+            <li>Device identifier (for anonymous identification in shared lists)</li>
+            <li>Share codes (6-character codes for list sharing)</li>
+            <li>List metadata (creation and modification timestamps)</li>
+            <li>Error logs and crash reports for app stability</li>
+        </ul>
+
+        <p>We explicitly DO NOT collect:</p>
+        <ul>
+            <li>Personal identification information (name, email, phone number)</li>
+            <li>Location data</li>
+            <li>Contact information</li>
+            <li>Device information beyond anonymous identifiers</li>
+            <li>Usage analytics or behavioral tracking</li>
+            <li>Any other personal information</li>
+        </ul>
+
+        <h2>How We Use Information</h2>
+        <p>The information we collect is used solely for:</p>
+        <ul>
+            <li>Storing and synchronizing your grocery list items across devices</li>
+            <li>Enabling list sharing functionality through share codes</li>
+            <li>Identifying which device added each grocery item in shared lists</li>
+            <li>Maintaining real-time synchronization between shared list participants</li>
+            <li>Identifying and fixing app errors and crashes</li>
+            <li>Improving app performance and stability</li>
+        </ul>
+
+        <h2>Data Storage and Security</h2>
+        <ul>
+            <li>All data is stored securely using Supabase, a trusted database platform</li>
+            <li>Data is encrypted in transit and at rest</li>
+            <li>Share codes are generated using secure random methods</li>
+            <li>No personal authentication is required - the app operates anonymously</li>
+            <li>Database access is restricted and monitored</li>
+        </ul>
+
+        <h2>Data Sharing and Third Parties</h2>
+        <p>We use the following third-party services:</p>
+        <ul>
+            <li>Supabase: For secure data storage and real-time synchronization</li>
+            <li>Expo/React Native: For app development and error reporting</li>
+        </ul>
+        <p>We do not sell, trade, or share your grocery list data with any other third parties for marketing or commercial purposes.</p>
+
+        <h2>List Sharing</h2>
+        <p>When you share a grocery list:</p>
+        <ul>
+            <li>A unique 6-character share code is generated</li>
+            <li>Anyone with this code can access and modify your grocery list</li>
+            <li>Shared participants can see which device added each item, but not personal information</li>
+            <li>You are responsible for controlling who has access to your share codes</li>
+            <li>Share codes can be regenerated to revoke access if needed</li>
+        </ul>
+
+        <h2>Data Retention</h2>
+        <ul>
+            <li>Grocery list data is retained indefinitely to maintain list functionality</li>
+            <li>Inactive lists (no modifications for 1 year) may be automatically deleted</li>
+            <li>Error logs and crash reports are automatically deleted after 30 days</li>
+            <li>You can delete your entire list at any time through the app</li>
+        </ul>
+
+        <h2>Your Rights</h2>
+        <p>You have the right to:</p>
+        <ul>
+            <li>Delete your entire grocery list and associated data at any time</li>
+            <li>Stop sharing your list by not providing the share code to others</li>
+            <li>Leave shared lists by creating a new list</li>
+            <li>Request information about data associated with your device identifier</li>
+            <li>Request deletion of your data by contacting us</li>
+        </ul>
+
+        <h2>Children's Privacy</h2>
+        <p>Grabby does not collect personal information and can be used by children. However, we recommend parental supervision when children share grocery lists with others.</p>
+
+        <h2>International Users</h2>
+        <p>Grabby is available worldwide. Data is stored on servers that may be located in different countries. By using the app, you consent to the transfer of your grocery list data to these servers.</p>
+
+        <h2>Changes to This Policy</h2>
+        <p>We may update this Privacy Policy from time to time. We will notify users of any material changes through the app or by updating the "Last updated" date at the top of this policy.</p>
+
+        <h2>Contact Us</h2>
+        <p>If you have any questions about this Privacy Policy or Grabby's privacy practices, please contact us through the main habby website or app.</p>
+
+        <h2>Additional Information</h2>
+        <p>Grabby is designed to be a simple, privacy-focused grocery list app. We believe in collecting only what's necessary to provide a great collaborative shopping experience while keeping your data secure and private.</p>
+
+        <a class="back-link" href="grabby.html">← Back to Grabby</a>
+    </div>
+
+    <footer>
+        <p>© 2025 habby. All rights reserved.</p>
+    </footer>
+</div>
+</body>
+</html>
