@@ -1,164 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Piano - habby</title>
-    
+
     <link href="favicon.ico" rel="icon" type="image/png">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --color-primary: #B6C7AA;
-            --color-secondary: #F6E6CB;
-            --color-accent: #65647C;
-            --color-text-primary: #4A4947;
-            --color-text-secondary: #686764;
-        }
+    <link href="https://fonts.googleapis.com/css2?family=Limelight&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+    <link rel="stylesheet" href="styles/piano.css">
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--color-secondary);
-            color: var(--color-text-primary);
-            line-height: 1.6;
-            padding: 2rem;
-        }
+    <!-- Ionicons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            color: var(--color-text-primary);
-        }
-
-        .back-link {
-            position: absolute;
-            top: 2rem;
-            left: 2rem;
-            color: var(--color-text-primary);
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .back-link:hover {
-            opacity: 0.7;
-        }
-
-        .status {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2rem;
-        }
-
-        .connection-status {
-            padding: 1rem;
-            border-radius: 8px;
-            margin-top: 1rem;
-        }
-
-        .connected {
-            background-color: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-        }
-
-        .disconnected {
-            background-color: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-        }
-    </style>
-    
     <!-- Supabase JS -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
+
 <body>
-    <a href="/" class="back-link">← Back to habby</a>
-    
     <div class="container">
-        <h1>Piano</h1>
-        
+        <!-- Daily Motivation section -->
+        <div class="motivation-section">
+            <p id="daily-motivation" class="daily-quote">
+                <!-- Quote will be populated by JavaScript -->
+            </p>
+        </div>
+
+        <!-- Goals section -->
         <div class="status">
-            <h3>Piano App</h3>
-            <p>Ready to build something musical!</p>
-            <div id="connectionStatus" class="connection-status disconnected">
-                Connecting to database...
+            <div class="goals-overview">
+                <div class="goal-period">
+                    <h2>WEEKLY</h2>
+                    <div id="weeklyGoals" class="goal-list">
+                        <!-- Weekly goals will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="goal-period">
+                    <h2>MONTHLY</h2>
+                    <div id="monthlyGoals" class="goal-list">
+                        <!-- Monthly goals will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="goal-period">
+                    <h2>6 MONTHS</h2>
+                    <div id="longTermGoals" class="goal-list">
+                        <!-- Long-term goals will be populated by JavaScript -->
+                    </div>
+                </div>
             </div>
+        </div>
+
+        <!-- Track Progress section -->
+        <div class="status">
+            <div class="goal-list" id="practiceList">
+                <!-- Practice items will be populated by JavaScript -->
+            </div>
+            <button class="undo-all-btn" onclick="undoTodayProgress()">
+                Reset All
+            </button>
         </div>
     </div>
 
-    <script>
-        // Supabase configuration
-        const SUPABASE_URL = 'https://mpxearzyvrwixoqpyfei.supabase.co'
-        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1weGVhcnp5dnJ3aXhvcXB5ZmVpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTYzNzE1NTUsImV4cCI6MjA3MTk0NzU1NX0.wTD-xH02jEpeqPGS-3g2VdH6V-qhms42KJAsK3vmqFg'
+    <!-- Confetti container -->
+    <div id="confetti-container" class="confetti-container"></div>
 
-        // Initialize Supabase client
-        const { createClient } = supabase
-        const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
-
-        // Check if user is in Spain
-        async function checkLocation() {
-            try {
-                const response = await fetch('https://ipapi.co/json/')
-                const data = await response.json()
-                return data.country_code === 'ES'
-            } catch (error) {
-                console.log('Location check failed:', error)
-                return false // Block by default if location check fails
-            }
-        }
-
-        // Test connection and location
-        async function testConnection() {
-            const statusEl = document.getElementById('connectionStatus')
-            
-            // First check location
-            const isInSpain = await checkLocation()
-            
-            if (!isInSpain) {
-                statusEl.textContent = 'Access restricted to Spain only'
-                statusEl.className = 'connection-status disconnected'
-                return
-            }
-            
-            try {
-                // Simple test query - this will work even without tables
-                const { data, error } = await supabaseClient.from('_test').select('*').limit(1)
-                
-                // If we get here without throwing, connection works
-                statusEl.textContent = 'Connected to Supabase! (Spain ✓)'
-                statusEl.className = 'connection-status connected'
-                
-                console.log('Supabase connection successful')
-            } catch (error) {
-                // Even connection errors tell us we can reach Supabase
-                if (error.message.includes('relation') || error.message.includes('does not exist')) {
-                    statusEl.textContent = 'Connected to Supabase! (Spain ✓, No tables yet)'
-                    statusEl.className = 'connection-status connected'
-                } else {
-                    statusEl.textContent = `Connection error: ${error.message}`
-                    statusEl.className = 'connection-status disconnected'
-                }
-                console.log('Supabase response:', error)
-            }
-        }
-
-        // Test connection when page loads
-        document.addEventListener('DOMContentLoaded', testConnection)
-    </script>
+    <script src="scripts/supabase-client.js"></script>
+    <script src="scripts/goals-manager.js"></script>
+    <script src="scripts/practice-tracker.js"></script>
+    <script src="scripts/piano.js"></script>
 </body>
+
 </html>
