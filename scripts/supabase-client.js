@@ -13,6 +13,7 @@ async function checkLocation() {
     // First, check timezone - instant and no API calls
     try {
         const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone
+        console.log('Detected timezone:', timezone)
         const spanishTimezones = [
             'Europe/Madrid',
             'Europe/Andorra',
@@ -23,6 +24,8 @@ async function checkLocation() {
             console.log('Location check: Spain detected via timezone')
             return await checkTurnstile()
         }
+        
+        console.log('Timezone not in Spanish list, checking IP geolocation')
         
         // If timezone is not Spanish, check cache first
         const cacheKey = 'location_check'
