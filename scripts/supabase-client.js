@@ -37,7 +37,7 @@ async function checkLocation() {
         }
         
         // Fallback to IP geolocation with more reliable service
-        const response = await fetch('http://ip-api.com/json/?fields=countryCode')
+        const response = await fetch('https://ip-api.com/json/?fields=countryCode')
         const data = await response.json()
         const isSpain = data.countryCode === 'ES'
         
@@ -58,6 +58,14 @@ async function checkLocation() {
 // Check Turnstile completion
 async function checkTurnstile() {
     return new Promise((resolve) => {
+        // Check if Turnstile widget exists (means it's configured)
+        const turnstileDiv = document.querySelector('.cf-turnstile')
+        if (!turnstileDiv) {
+            console.log('Turnstile not configured, skipping bot check')
+            resolve(true)
+            return
+        }
+        
         const turnstileToken = localStorage.getItem('turnstile_token')
         const tokenTimestamp = localStorage.getItem('turnstile_timestamp')
         
@@ -73,6 +81,12 @@ async function checkTurnstile() {
         
         // Show Turnstile widget
         const widget = document.getElementById('turnstile-widget')
+        if (!widget) {
+            console.log('Turnstile widget not found, skipping bot check')
+            resolve(true)
+            return
+        }
+        
         widget.style.display = 'block'
         
         // Set up success callback
@@ -84,11 +98,18 @@ async function checkTurnstile() {
             resolve(true)
         }
         
+        // Set up error callback for invalid site keys
+        window.onTurnstileError = function(error) {
+            console.log('Turnstile error:', error, 'proceeding without bot check')
+            widget.style.display = 'none'
+            resolve(true)
+        }
+        
         // Timeout after 30 seconds
         setTimeout(() => {
             widget.style.display = 'none'
-            console.log('Turnstile timeout')
-            resolve(false)
+            console.log('Turnstile timeout, proceeding without bot check')
+            resolve(true)
         }, 30000)
     })
 }
