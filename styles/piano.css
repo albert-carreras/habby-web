@@ -41,6 +41,12 @@ h1 {
 
 h2 {
     font-family: 'Limelight', serif;
+    color: var(--color-accent);
+    font-size: 1.4rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    font-weight: 400;
+    line-height: 1.2;
 }
 
 /* ===== MOTIVATION SECTION ===== */
