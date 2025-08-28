@@ -171,8 +171,9 @@ window.GoalsManager = (function () {
             // Increment by 5%
             goal.progress = Math.min(goal.target, goal.progress + 5)
         } else if (goal.type === 'counter') {
-            // Increment by 1
-            goal.progress = Math.min(goal.target, goal.progress + 1)
+            // Increment by 5% of target (minimum 1)
+            const increment = Math.max(1, Math.round(goal.target * 0.05))
+            goal.progress = Math.min(goal.target, goal.progress + increment)
         }
 
         // Save to Supabase 
