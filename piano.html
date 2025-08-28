@@ -107,25 +107,47 @@
         const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1weGVhcnp5dnJ3aXhvcXB5ZmVpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTYzNzE1NTUsImV4cCI6MjA3MTk0NzU1NX0.wTD-xH02jEpeqPGS-3g2VdH6V-qhms42KJAsK3vmqFg'
 
         // Initialize Supabase client
-        const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+        const { createClient } = supabase
+        const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
 
-        // Test connection
+        // Check if user is in Spain
+        async function checkLocation() {
+            try {
+                const response = await fetch('https://ipapi.co/json/')
+                const data = await response.json()
+                return data.country_code === 'ES'
+            } catch (error) {
+                console.log('Location check failed:', error)
+                return false // Block by default if location check fails
+            }
+        }
+
+        // Test connection and location
         async function testConnection() {
             const statusEl = document.getElementById('connectionStatus')
             
+            // First check location
+            const isInSpain = await checkLocation()
+            
+            if (!isInSpain) {
+                statusEl.textContent = 'Access restricted to Spain only'
+                statusEl.className = 'connection-status disconnected'
+                return
+            }
+            
             try {
                 // Simple test query - this will work even without tables
-                const { data, error } = await supabase.from('_test').select('*').limit(1)
+                const { data, error } = await supabaseClient.from('_test').select('*').limit(1)
                 
                 // If we get here without throwing, connection works
-                statusEl.textContent = 'Connected to Supabase!'
+                statusEl.textContent = 'Connected to Supabase! (Spain ✓)'
                 statusEl.className = 'connection-status connected'
                 
                 console.log('Supabase connection successful')
             } catch (error) {
                 // Even connection errors tell us we can reach Supabase
                 if (error.message.includes('relation') || error.message.includes('does not exist')) {
-                    statusEl.textContent = 'Connected to Supabase! (No tables yet)'
+                    statusEl.textContent = 'Connected to Supabase! (Spain ✓, No tables yet)'
                     statusEl.className = 'connection-status connected'
                 } else {
                     statusEl.textContent = `Connection error: ${error.message}`
