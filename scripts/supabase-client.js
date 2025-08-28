@@ -37,9 +37,9 @@ async function checkLocation() {
         }
         
         // Fallback to IP geolocation with more reliable service
-        const response = await fetch('https://ip-api.com/json/?fields=countryCode')
+        const response = await fetch('https://ipinfo.io/json')
         const data = await response.json()
-        const isSpain = data.countryCode === 'ES'
+        const isSpain = data.country === 'ES'
         
         // Cache the result
         localStorage.setItem(cacheKey, JSON.stringify({
@@ -122,6 +122,15 @@ async function testConnection() {
         
         if (!isInSpain) {
             console.log('Access restricted to Spain only')
+            // Actually block content
+            document.body.innerHTML = `
+                <div style="display: flex; align-items: center; justify-content: center; height: 100vh; background: #f5f5f5; font-family: 'Crimson Text', serif;">
+                    <div style="text-align: center; padding: 40px; background: white; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); max-width: 400px;">
+                        <h1 style="color: #3c5671; margin-bottom: 20px;">Access Restricted</h1>
+                        <p style="color: #666; margin: 0;">This page is only accessible from Spain.</p>
+                    </div>
+                </div>
+            `
             return
         }
         
