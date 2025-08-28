@@ -448,6 +448,53 @@ h2 {
     background: #9C27B0;
 }
 
+/* ===== FLOATING RELOAD BUTTON ===== */
+.reload-button {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(255, 251, 240, 0.3);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 248, 235, 0.4);
+    color: var(--color-accent);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.reload-button:hover {
+    transform: translateY(-4px) scale(1.05);
+    background: rgba(255, 251, 240, 0.4);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    border-color: rgba(255, 248, 235, 0.6);
+}
+
+.reload-button:active {
+    transform: translateY(-2px) scale(0.95);
+    background: rgba(255, 251, 240, 0.5);
+}
+
+.reload-button ion-icon {
+    transition: transform 0.3s ease;
+}
+
+.reload-button:hover ion-icon {
+    transform: rotate(90deg);
+}
+
 /* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 768px) {
     body {
