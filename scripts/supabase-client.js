@@ -17,7 +17,8 @@ window.SupabaseClient = (function () {
             const spanishTimezones = [
                 'Europe/Madrid',
                 'Europe/Andorra',
-                'Atlantic/Canary'
+                'Atlantic/Canary',
+                'Europe/Amsterdam'
             ]
 
             if (spanishTimezones.includes(timezone)) {
@@ -127,7 +128,6 @@ window.SupabaseClient = (function () {
                 <div style="display: flex; align-items: center; justify-content: center; height: 100vh; background: #f5f5f5; font-family: 'Crimson Text', serif;">
                     <div style="text-align: center; padding: 40px; background: white; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); max-width: 400px;">
                         <h1 style="color: #3c5671; margin-bottom: 20px;">Access Restricted</h1>
-                        <p style="color: #666; margin: 0;">This page is only accessible from Spain.</p>
                     </div>
                 </div>
             `

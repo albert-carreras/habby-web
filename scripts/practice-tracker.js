@@ -25,6 +25,7 @@ window.PracticeTracker = (function () {
         const todayPractice = progressData.dailyPractice[today] || {}
 
         const practiceListDiv = document.getElementById('practiceList')
+        if (!practiceListDiv) return
 
         const practiceHtml = practiceTypes.map(type => {
             const minutes = todayPractice[type] || 0
