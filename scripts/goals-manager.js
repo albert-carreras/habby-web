@@ -52,9 +52,14 @@ window.GoalsManager = (function () {
             return `
             <div class="goal-item">
                 <span class="goal-text">${goal.text}</span>
-                <span class="goal-progress ${animate ? 'updated' : ''} ${isComplete ? 'completed' : ''} ${percentage > 0 && !isComplete ? 'has-progress' : ''}" style="background: ${isComplete ? (percentage > 100 ? 'linear-gradient(45deg, #3c5671, #24304c)' : '#3c5671') : percentage > 0 ? `conic-gradient(#3c5671 0deg ${displayPercentage * 3.6}deg, rgba(255, 248, 235, 0.8) ${displayPercentage * 3.6}deg 360deg)` : 'rgba(255, 251, 240, 0.8)'}; color: ${isComplete ? '#fffbf0' : 'var(--color-accent)'}; border: ${percentage > 0 && !isComplete ? 'none' : '2px solid rgba(255, 248, 235, 0.6)'};">
-                    ${isComplete ? '<ion-icon name="trophy" style="font-size: 2rem; vertical-align: middle; margin-top: -2px;"></ion-icon>' : percentage + '%'}
-                </span>
+                <div class="goal-actions">
+                    <div class="weekly-stats">
+                        <div class="weekly-minutes">${current} min</div>
+                    </div>
+                    <span class="goal-progress ${animate ? 'updated' : ''} ${isComplete ? 'completed' : ''} ${percentage > 0 && !isComplete ? 'has-progress' : ''}" style="background: ${isComplete ? (percentage > 100 ? 'linear-gradient(45deg, #3c5671, #24304c)' : '#3c5671') : percentage > 0 ? `conic-gradient(#3c5671 0deg ${displayPercentage * 3.6}deg, rgba(255, 248, 235, 0.8) ${displayPercentage * 3.6}deg 360deg)` : 'rgba(255, 251, 240, 0.8)'}; color: ${isComplete ? '#fffbf0' : 'var(--color-accent)'}; border: ${percentage > 0 && !isComplete ? 'none' : '2px solid rgba(255, 248, 235, 0.6)'};">
+                        ${percentage}%
+                    </span>
+                </div>
             </div>
         `
         }).join('')

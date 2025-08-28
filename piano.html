@@ -20,8 +20,6 @@
     <!-- Supabase JS -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-    <!-- Cloudflare Turnstile -->
-    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 
 <body>
@@ -66,12 +64,13 @@
 
         <!-- Track Progress section -->
         <div class="status">
+            <h2>TODAY <button class="undo-all-btn" onclick="undoTodayProgress()">
+                    Reset Day
+                </button></h2>
             <div class="goal-list" id="practiceList">
                 <!-- Practice items will be populated by JavaScript -->
             </div>
-            <button class="undo-all-btn" onclick="undoTodayProgress()">
-                Reset All
-            </button>
+
         </div>
     </div>
 
@@ -82,10 +81,6 @@
 
     <!-- Confetti container -->
     <div id="confetti-container" class="confetti-container"></div>
-    <!-- Turnstile widget (hidden until needed) -->
-    <div id="turnstile-widget" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1000; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-        <div class="cf-turnstile" data-sitekey="0x4AAAAAABvUDEa7mrnFwJhV" data-callback="onTurnstileSuccess" data-error-callback="onTurnstileError" data-theme="light" data-size="normal"></div>
-    </div>
     <script src="scripts/supabase-client.js"></script>
     <script src="scripts/goals-manager.js"></script>
     <script src="scripts/practice-tracker.js"></script>

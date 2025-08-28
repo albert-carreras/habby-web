@@ -4,7 +4,7 @@
     --color-accent: #24304c;
     --color-text-primary: #24304c;
     --color-text-secondary: #64748b;
-    --color-background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+    --color-background: linear-gradient(135deg, #f8f6f0 0%, #f1f5f9 25%, #e8e5df 75%, #e2e8f0 100%);
 }
 
 * {
@@ -40,6 +40,9 @@ h1 {
 }
 
 h2 {
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
     font-family: 'Limelight', serif;
     color: var(--color-accent);
     font-size: 1.4rem;
@@ -51,15 +54,13 @@ h2 {
 
 /* ===== MOTIVATION SECTION ===== */
 .motivation-section {
-    background: rgba(255, 251, 240, 0.25);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: linear-gradient(135deg, rgba(255, 251, 240, 0.6) 0%, rgba(252, 248, 227, 0.5) 50%, rgba(250, 245, 215, 0.4) 100%);
     color: var(--color-accent);
     padding: 1.5rem;
     border-radius: 16px;
     margin-bottom: 1.5rem;
     text-align: center;
-    border: 1px solid rgba(255, 248, 235, 0.3);
+    border: 1px solid rgba(255, 248, 235, 0.6);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
@@ -129,15 +130,14 @@ h2 {
 }
 
 .status {
-    background: rgba(255, 251, 240, 0.25);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    text-align: left;
+    background: linear-gradient(135deg, rgba(255, 251, 240, 0.6) 0%, rgba(252, 248, 227, 0.5) 50%, rgba(250, 245, 215, 0.4) 100%);
     color: var(--color-accent);
     padding: 2rem;
     border-radius: 20px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     margin-bottom: 2rem;
-    border: 1px solid rgba(255, 248, 235, 0.3);
+    border: 1px solid rgba(255, 248, 235, 0.6);
 }
 
 .connection-status {
@@ -192,6 +192,7 @@ h2 {
 
 /* ===== LIST COMPONENTS ===== */
 .goal-list {
+    margin-top: 1rem;
     display: flex;
     flex-direction: column;
     gap: 0.6rem;
@@ -202,9 +203,7 @@ h2 {
     justify-content: space-between;
     align-items: center;
     padding: 0.5rem 0.5rem 0.5rem 1.3rem;
-    background: rgba(255, 251, 240, 0.4);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background: linear-gradient(135deg, rgba(255, 251, 240, 0.95) 0%, rgba(252, 248, 227, 0.92) 50%, rgba(250, 245, 215, 0.88) 100%);
     border-radius: 100px;
     border: 1px solid rgba(255, 248, 235, 0.5);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
@@ -236,9 +235,7 @@ h2 {
 .goal-progress {
     font-weight: 700;
     color: var(--color-accent);
-    background: rgba(255, 251, 240, 0.8);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: linear-gradient(135deg, rgba(255, 251, 240, 0.98) 0%, rgba(252, 248, 227, 0.95) 50%, rgba(250, 245, 215, 0.92) 100%);
     padding: 0;
     border-radius: 50%;
     font-size: 1.1rem;
@@ -270,9 +267,7 @@ h2 {
     width: calc(100% - 8px);
     height: calc(100% - 8px);
     border-radius: 50%;
-    background: rgba(255, 251, 240, 0.8);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
+    background: linear-gradient(135deg, rgba(255, 251, 240, 0.98) 0%, rgba(252, 248, 227, 0.95) 50%, rgba(250, 245, 215, 0.92) 100%);
     z-index: -1;
 }
 
@@ -391,23 +386,16 @@ h2 {
 
 /* ===== BUTTON COMPONENTS ===== */
 .undo-all-btn {
-    background: rgba(255, 251, 240, 0.3);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    font-family: 'Crimson Text', serif;
+    background: linear-gradient(135deg, rgba(255, 251, 240, 0.9) 0%, rgba(252, 248, 227, 0.87) 50%, rgba(250, 245, 215, 0.82) 100%);
     border: 1px solid rgba(255, 248, 235, 0.4);
     color: var(--color-accent);
     padding: 0.8rem 1.5rem;
     border-radius: 200px;
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     min-width: 120px;
-    margin-top: 10px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
 }
 
@@ -519,9 +507,7 @@ h2 {
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    background: rgba(255, 251, 240, 0.3);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    background: linear-gradient(135deg, rgba(255, 251, 240, 0.95) 0%, rgba(252, 248, 227, 0.92) 50%, rgba(250, 245, 215, 0.88) 100%);
     border: 1px solid rgba(255, 248, 235, 0.4);
     color: var(--color-accent);
     cursor: pointer;
@@ -556,6 +542,26 @@ h2 {
 
 .reload-button:hover ion-icon {
     transform: rotate(90deg);
+}
+
+/* ===== WEEKLY STATS ===== */
+.weekly-stats {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    margin-right: 1rem;
+}
+
+.weekly-minutes {
+    font-size: 1rem;
+    color: var(--color-accent);
+    font-weight: 600;
+    line-height: 1;
+    padding: 0.2rem 0.5rem;
+    background: rgba(60, 86, 113, 0.1);
+    border-radius: 12px;
+    border: 1px solid rgba(60, 86, 113, 0.15);
 }
 
 /* ===== RESPONSIVE DESIGN ===== */
@@ -608,6 +614,10 @@ h2 {
     .daily-quote {
         font-size: 1.2rem;
     }
+
+    .weekly-stats {
+        margin-right: 0.4rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -635,5 +645,9 @@ h2 {
     .total-minutes-section {
         padding: 0.8rem;
         margin-bottom: 1rem;
+    }
+
+    .weekly-stats {
+        margin-right: 0.3rem;
     }
 }
