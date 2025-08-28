@@ -8,16 +8,89 @@ window.SupabaseClient = (function() {
     const { createClient } = supabase
     const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
 
-// Check if user is in Spain
+// Check if user is in Spain and passes bot protection
 async function checkLocation() {
+    // First, check timezone - instant and no API calls
     try {
-        const response = await fetch('https://ipapi.co/json/')
+        const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone
+        const spanishTimezones = [
+            'Europe/Madrid',
+            'Europe/Andorra',
+            'Atlantic/Canary'
+        ]
+        
+        if (spanishTimezones.includes(timezone)) {
+            console.log('Location check: Spain detected via timezone')
+            return await checkTurnstile()
+        }
+        
+        // If timezone is not Spanish, check cache first
+        const cacheKey = 'location_check'
+        const cached = localStorage.getItem(cacheKey)
+        if (cached) {
+            const { result, timestamp } = JSON.parse(cached)
+            const oneDay = 24 * 60 * 60 * 1000
+            if (Date.now() - timestamp < oneDay) {
+                console.log('Location check: Using cached result')
+                return result && await checkTurnstile()
+            }
+        }
+        
+        // Fallback to IP geolocation with more reliable service
+        const response = await fetch('http://ip-api.com/json/?fields=countryCode')
         const data = await response.json()
-        return data.country_code === 'ES'
+        const isSpain = data.countryCode === 'ES'
+        
+        // Cache the result
+        localStorage.setItem(cacheKey, JSON.stringify({
+            result: isSpain,
+            timestamp: Date.now()
+        }))
+        
+        console.log('Location check: IP geolocation result')
+        return isSpain && await checkTurnstile()
     } catch (error) {
         console.log('Location check failed:', error)
         return false // Block by default if location check fails
     }
+}
+
+// Check Turnstile completion
+async function checkTurnstile() {
+    return new Promise((resolve) => {
+        const turnstileToken = localStorage.getItem('turnstile_token')
+        const tokenTimestamp = localStorage.getItem('turnstile_timestamp')
+        
+        // Check if we have a recent valid token (valid for 5 minutes)
+        if (turnstileToken && tokenTimestamp) {
+            const fiveMinutes = 5 * 60 * 1000
+            if (Date.now() - parseInt(tokenTimestamp) < fiveMinutes) {
+                console.log('Using cached Turnstile token')
+                resolve(true)
+                return
+            }
+        }
+        
+        // Show Turnstile widget
+        const widget = document.getElementById('turnstile-widget')
+        widget.style.display = 'block'
+        
+        // Set up success callback
+        window.onTurnstileSuccess = function(token) {
+            localStorage.setItem('turnstile_token', token)
+            localStorage.setItem('turnstile_timestamp', Date.now().toString())
+            widget.style.display = 'none'
+            console.log('Turnstile completed successfully')
+            resolve(true)
+        }
+        
+        // Timeout after 30 seconds
+        setTimeout(() => {
+            widget.style.display = 'none'
+            console.log('Turnstile timeout')
+            resolve(false)
+        }, 30000)
+    })
 }
 
 // Test connection and location (silent)
