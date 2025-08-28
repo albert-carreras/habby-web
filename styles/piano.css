@@ -538,11 +538,45 @@ h2 {
 }
 
 .reload-button ion-icon {
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.2s ease;
 }
 
 .reload-button:hover ion-icon {
     transform: rotate(90deg);
+}
+
+.reload-button.refreshing ion-icon {
+    transform: rotate(360deg);
+    animation: spin 0.8s ease-in-out;
+}
+
+.reload-button.success ion-icon {
+    opacity: 0;
+}
+
+.reload-button.success::after {
+    content: '✓';
+    position: absolute;
+    font-size: 1.8rem;
+    color: #22c55e;
+    font-weight: bold;
+    animation: checkmarkAppear 0.3s ease-in-out;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes checkmarkAppear {
+    0% { 
+        opacity: 0; 
+        transform: scale(0.5); 
+    }
+    100% { 
+        opacity: 1; 
+        transform: scale(1); 
+    }
 }
 
 /* ===== WEEKLY STATS ===== */

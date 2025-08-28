@@ -401,15 +401,43 @@
         window.GoalsManager.initGoalMenuHandlers()
     }
 
-    // Refresh data from Supabase
+    // Throttle variable for refresh button
+    let isRefreshing = false;
+
+    // Refresh data from Supabase with animation
     async function refreshData() {
+        // Prevent rapid clicks
+        if (isRefreshing) return;
+        
+        const refreshButton = document.querySelector('.reload-button');
+        
         try {
+            isRefreshing = true;
+            
+            // Add refreshing animation
+            refreshButton.classList.add('refreshing');
+            
             await loadData()
             displayTotalMinutes()
             window.PracticeTracker.updatePracticeList(progressData)
             window.GoalsManager.updateGoalsDisplay(progressData)
+            
+            // Show success animation
+            refreshButton.classList.remove('refreshing');
+            refreshButton.classList.add('success');
+            
+            // Reset to normal state after showing success
+            setTimeout(() => {
+                refreshButton.classList.remove('success');
+                isRefreshing = false;
+            }, 800);
+            
         } catch (error) {
             console.error('Error refreshing data:', error)
+            
+            // Reset state on error
+            refreshButton.classList.remove('refreshing', 'success');
+            isRefreshing = false;
         }
     }
 
