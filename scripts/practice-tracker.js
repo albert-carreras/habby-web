@@ -64,6 +64,11 @@ window.PracticeTracker = (function () {
 
         updatePracticeList(progressData)
         window.GoalsManager.updateGoalsDisplay(progressData, true)
+        
+        // Update total minutes display with animation
+        if (window.displayTotalMinutes) {
+            window.displayTotalMinutes(true)
+        }
 
         // Button feedback - find the clicked element and animate just the progress circle
         const btn = document.querySelector(`[onclick*="'${practiceType}'"]`)
@@ -93,6 +98,11 @@ window.PracticeTracker = (function () {
             delete progressData.dailyPractice[today]
             updatePracticeList(progressData)
             window.GoalsManager.updateGoalsDisplay(progressData, true) // Animate weekly goals update
+            
+            // Update total minutes display with animation
+            if (window.displayTotalMinutes) {
+                window.displayTotalMinutes(true)
+            }
 
             // Show feedback
             const undoBtn = document.querySelector('.undo-all-btn')

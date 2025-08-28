@@ -137,6 +137,199 @@
         }
     }
 
+    // Motivational phrases for total minutes display
+    const totalMinutesMessages = [
+        "minutes forging your musical destiny",
+        "minutes building legendary technique",
+        "minutes of pure dedication invested",
+        "minutes sculpting greatness",
+        "minutes closer to mastery",
+        "minutes of disciplined growth",
+        "minutes that separate you from ordinary",
+        "minutes of character-building practice",
+        "minutes invested in your musical future",
+        "minutes of unwavering commitment",
+        "minutes transforming struggle into strength",
+        "minutes building unstoppable momentum",
+        "minutes creating your musical legacy",
+        "minutes of relentless pursuit",
+        "minutes that define true dedication",
+        "minutes grinding toward excellence",
+        "minutes forging unbreakable discipline",
+        "minutes of purposeful repetition",
+        "minutes building muscle memory that lasts",
+        "minutes separating dreamers from achievers",
+        "minutes of focused intensity",
+        "minutes crafting your artistic voice",
+        "minutes that professionals respect",
+        "minutes building technical foundations",
+        "minutes of consistent daily progress",
+        "minutes transforming potential into skill",
+        "minutes proving your commitment to greatness",
+        "minutes of methodical improvement",
+        "minutes that compound into mastery",
+        "minutes showing your dedication to the craft",
+        "minutes building the habits of champions",
+        "minutes of intentional practice",
+        "minutes creating lasting musical memories",
+        "minutes that separate good from great",
+        "minutes of authentic artistic development",
+        "minutes building confidence through repetition",
+        "minutes of disciplined musical training",
+        "minutes proving your love for the instrument",
+        "minutes that make the difference",
+        "minutes of persistent forward motion",
+        "minutes building your musical character",
+        "minutes of professional-level commitment",
+        "minutes creating unstoppable progress",
+        "minutes of focused musical meditation",
+        "minutes building strength through struggle",
+        "minutes that define your musical journey",
+        "minutes of dedicated skill development",
+        "minutes proving practice makes permanent",
+        "minutes building technical mastery",
+        "minutes of passionate pursuit",
+        "minutes creating your performance foundation",
+        "minutes that show true musical devotion",
+        "minutes building unshakeable confidence",
+        "minutes of authentic artistic growth",
+        "minutes proving consistency beats intensity",
+        "minutes building your musical vocabulary",
+        "minutes of purposeful finger training",
+        "minutes creating lasting musical habits",
+        "minutes that demonstrate real commitment",
+        "minutes building professional-level skills",
+        "minutes of focused musical concentration",
+        "minutes proving dedication over talent",
+        "minutes building your performance stamina",
+        "minutes of methodical technical work",
+        "minutes creating musical muscle memory",
+        "minutes that separate serious from casual",
+        "minutes building artistic expression",
+        "minutes of disciplined daily ritual",
+        "minutes proving your musical ambition",
+        "minutes building technical fluency",
+        "minutes of consistent forward progress",
+        "minutes creating your unique musical voice",
+        "minutes that define musical excellence",
+        "minutes building performance confidence",
+        "minutes of dedicated artistic practice",
+        "minutes proving practice is your priority",
+        "minutes building lasting musical skills",
+        "minutes of focused technical development",
+        "minutes creating your musical identity",
+        "minutes that show unwavering determination",
+        "minutes building professional work ethic",
+        "minutes of purposeful musical study",
+        "minutes proving your commitment to craft",
+        "minutes building technical precision",
+        "minutes of authentic musical expression",
+        "minutes creating unbreakable practice habits",
+        "minutes that demonstrate musical maturity",
+        "minutes building performance readiness",
+        "minutes of disciplined artistic pursuit",
+        "minutes proving consistency is key",
+        "minutes building musical understanding",
+        "minutes of focused skill refinement",
+        "minutes creating your performance foundation",
+        "minutes that separate amateurs from pros",
+        "minutes building artistic confidence",
+        "minutes of dedicated musical growth",
+        "minutes proving practice transforms potential",
+        "minutes building technical mastery foundation",
+        "minutes of purposeful musical development",
+        "minutes creating lasting performance skills",
+        "minutes that show true artistic dedication",
+        "minutes building professional discipline",
+        "minutes of focused musical training",
+        "minutes proving your commitment to excellence",
+        "minutes building unshakeable technique",
+        "minutes of consistent artistic progress",
+        "minutes creating your musical legacy",
+        "minutes that define serious musicianship",
+        "minutes building performance confidence",
+        "minutes of dedicated practice discipline",
+        "minutes proving daily effort compounds",
+        "minutes building technical fluency",
+        "minutes of authentic musical pursuit",
+        "minutes creating professional-level habits",
+        "minutes that demonstrate real passion",
+        "minutes building artistic expression",
+        "minutes of focused musical meditation",
+        "minutes proving practice makes progress",
+        "minutes building lasting musical memories",
+        "minutes of disciplined skill development",
+        "minutes creating your unique artistic voice",
+        "minutes that separate good from exceptional",
+        "minutes building performance stamina",
+        "minutes of dedicated musical study",
+        "minutes proving commitment over convenience",
+        "minutes building technical precision",
+        "minutes of purposeful artistic growth",
+        "minutes creating unbreakable momentum",
+        "minutes that show true musical devotion",
+        "minutes building professional mindset",
+        "minutes of focused practice discipline",
+        "minutes proving consistency conquers all",
+        "minutes building musical mastery",
+        "minutes of authentic artistic development",
+        "minutes creating your performance identity",
+        "minutes that define musical excellence",
+        "minutes building unshakeable confidence",
+        "minutes of dedicated technical work",
+        "minutes proving practice is your pathway",
+        "minutes building lasting artistic skills",
+        "minutes of disciplined musical pursuit",
+        "minutes creating professional-level abilities",
+        "minutes that demonstrate unwavering focus",
+        "minutes building musical character",
+        "minutes of purposeful skill refinement",
+        "minutes proving dedication beats talent",
+        "minutes building technical mastery",
+        "minutes of consistent artistic progress",
+        "minutes creating your musical destiny",
+        "minutes that separate dreamers from doers",
+        "minutes building performance excellence",
+        "minutes of focused musical training",
+        "minutes proving your artistic commitment",
+        "minutes building unbreakable technique",
+        "minutes of dedicated practice ritual",
+        "minutes creating lasting musical growth",
+        "minutes that show true professional spirit",
+        "minutes building artistic confidence",
+        "minutes of disciplined musical development"
+    ];
+
+    // Calculate and display total minutes practiced
+    function displayTotalMinutes(animate = false) {
+        const totalMinutesElement = document.getElementById('total-minutes');
+        if (totalMinutesElement && progressData.dailyPractice) {
+            let totalMinutes = 0;
+            
+            // Sum up all practice minutes from all days
+            Object.values(progressData.dailyPractice).forEach(dayData => {
+                Object.values(dayData).forEach(minutes => {
+                    totalMinutes += minutes;
+                });
+            });
+
+            // Get rotating message based on date
+            const today = new Date();
+            const dayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / 1000 / 60 / 60 / 24);
+            const message = totalMinutesMessages[dayOfYear % totalMinutesMessages.length];
+
+            totalMinutesElement.innerHTML = `<span class="total-number">${totalMinutes}</span> <span class="total-text">${message}</span>`;
+
+            // Add animation when updated
+            if (animate) {
+                totalMinutesElement.classList.add('updated');
+                setTimeout(() => {
+                    totalMinutesElement.classList.remove('updated');
+                }, 800);
+            }
+        }
+    }
+
     // Global progress data
     let progressData = {
         dailyPractice: {},
@@ -202,6 +395,7 @@
     async function initApp() {
         displayDailyMotivation()
         await loadData()
+        displayTotalMinutes()
         window.PracticeTracker.updatePracticeList(progressData)
         window.GoalsManager.updateGoalsDisplay(progressData)
         window.GoalsManager.initGoalMenuHandlers()
@@ -218,6 +412,7 @@
     window.toggleGoalMenu = window.GoalsManager.toggleGoalMenu
     window.hideGoalMenu = window.GoalsManager.hideGoalMenu
     window.createConfetti = createConfetti
+    window.displayTotalMinutes = displayTotalMinutes
 
     // Initialize when DOM is loaded
     document.addEventListener('DOMContentLoaded', () => {
