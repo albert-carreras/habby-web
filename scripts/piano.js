@@ -401,6 +401,18 @@
         window.GoalsManager.initGoalMenuHandlers()
     }
 
+    // Refresh data from Supabase
+    async function refreshData() {
+        try {
+            await loadData()
+            displayTotalMinutes()
+            window.PracticeTracker.updatePracticeList(progressData)
+            window.GoalsManager.updateGoalsDisplay(progressData)
+        } catch (error) {
+            console.error('Error refreshing data:', error)
+        }
+    }
+
     // Make functions globally available for onclick handlers
     window.trackPractice = (practiceType) => window.PracticeTracker.trackPractice(practiceType, progressData)
     window.updateGoalProgress = (goalType, goalId) => window.GoalsManager.updateGoalProgress(goalType, goalId, progressData)
@@ -413,6 +425,7 @@
     window.hideGoalMenu = window.GoalsManager.hideGoalMenu
     window.createConfetti = createConfetti
     window.displayTotalMinutes = displayTotalMinutes
+    window.refreshData = refreshData
 
     // Initialize when DOM is loaded
     document.addEventListener('DOMContentLoaded', () => {
