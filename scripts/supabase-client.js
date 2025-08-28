@@ -35,7 +35,8 @@ window.SupabaseClient = (function () {
                 const { result, timestamp } = JSON.parse(cached)
                 const oneDay = 24 * 60 * 60 * 1000
                 if (Date.now() - timestamp < oneDay) {
-                    console.log('Location check: Using cached result')
+                    console.log(result)
+                    console.log('Location check: Using cached result', result)
                     return result && await checkTurnstile()
                 }
             }
