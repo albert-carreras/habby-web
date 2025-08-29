@@ -564,18 +564,24 @@ h2 {
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 @keyframes checkmarkAppear {
-    0% { 
-        opacity: 0; 
-        transform: scale(0.5); 
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
     }
-    100% { 
-        opacity: 1; 
-        transform: scale(1); 
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
     }
 }
 
@@ -590,6 +596,7 @@ h2 {
 
 .weekly-minutes {
     font-size: 1rem;
+    white-space: nowrap;
     color: var(--color-accent);
     font-weight: 600;
     line-height: 1;

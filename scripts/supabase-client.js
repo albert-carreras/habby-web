@@ -37,7 +37,7 @@ window.SupabaseClient = (function () {
         if (weeklyError) throw weeklyError
 
         return weeklyTargets.map(target => ({
-            text: target.practice_type.charAt(0).toUpperCase() + target.practice_type.slice(1) + ' Practice',
+            text: target.practice_type.charAt(0).toUpperCase() + target.practice_type.slice(1),
             target: target.target_minutes,
             type: 'minutes',
             practiceType: target.practice_type
@@ -89,7 +89,9 @@ window.SupabaseClient = (function () {
         // Convert to our format
         const dailyPractice = {}
         practiceData.forEach(record => {
-            const dateStr = new Date(record.practice_date).toDateString()
+            // Use the same date conversion logic as practice tracker to ensure consistency
+            const dateObj = new Date(record.practice_date + 'T00:00:00') // Force local timezone interpretation
+            const dateStr = dateObj.toDateString()
             if (!dailyPractice[dateStr]) {
                 dailyPractice[dateStr] = {}
             }

@@ -3,9 +3,9 @@ window.PracticeTracker = (function () {
 
     // Practice type names mapping
     const practiceNames = {
-        'chords': 'Chord Practice',
-        'scales': 'Scales Practice',
-        'piece': 'New Piece Work',
+        'chords': 'Chords',
+        'scales': 'Scales',
+        'piece': 'New Piece',
         'sight-reading': 'Sight Reading'
     }
 
@@ -18,6 +18,15 @@ window.PracticeTracker = (function () {
     }
 
     const practiceTypes = ['chords', 'scales', 'piece', 'sight-reading']
+
+    // Helper function to get consistent date formatting for both local storage and Supabase
+    function getTodayDate() {
+        const now = new Date()
+        return {
+            displayKey: now.toDateString(),  // For in-memory storage key
+            dbDate: now.toISOString().split('T')[0]  // For Supabase storage
+        }
+    }
 
     // Update practice list display
     function updatePracticeList(progressData) {
@@ -46,8 +55,7 @@ window.PracticeTracker = (function () {
 
     // Track practice time (5 minutes per click)
     async function trackPractice(practiceType, progressData) {
-        const today = new Date().toDateString()
-        const todayDate = new Date().toISOString().split('T')[0]
+        const { displayKey: today, dbDate: todayDate } = getTodayDate()
 
         // Initialize today's data if it doesn't exist
         if (!progressData.dailyPractice[today]) {
@@ -65,7 +73,7 @@ window.PracticeTracker = (function () {
 
         updatePracticeList(progressData)
         window.GoalsManager.updateGoalsDisplay(progressData, true)
-        
+
         // Update total minutes display with animation
         if (window.displayTotalMinutes) {
             window.displayTotalMinutes(true)
@@ -89,8 +97,7 @@ window.PracticeTracker = (function () {
 
     // Undo all today's progress
     async function undoTodayProgress(progressData) {
-        const today = new Date().toDateString()
-        const todayDate = new Date().toISOString().split('T')[0]
+        const { displayKey: today, dbDate: todayDate } = getTodayDate()
 
         if (progressData.dailyPractice[today]) {
             // Delete from Supabase
@@ -99,7 +106,7 @@ window.PracticeTracker = (function () {
             delete progressData.dailyPractice[today]
             updatePracticeList(progressData)
             window.GoalsManager.updateGoalsDisplay(progressData, true) // Animate weekly goals update
-            
+
             // Update total minutes display with animation
             if (window.displayTotalMinutes) {
                 window.displayTotalMinutes(true)
