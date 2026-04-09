@@ -15,7 +15,7 @@
 	</script>
 
 	<meta
-		content="Transform your life with habby - a beautiful, distraction-free digital bullet journal and habit tracking app. Set goals, track habits, and capture your daily journey with elegance and simplicity."
+		content="habby is a quiet, distraction-free bullet journal and habit tracker. One line a day, flexible habits, monthly goals — everything you need, nothing you don't."
 		name="description">
 	<meta
 		content="bullet journal app, digital bullet journal, habit tracker, habit tracking app, daily journaling, minimalist journal, goal tracking app"
@@ -27,15 +27,20 @@
 	<meta content="https://habby.day/" property="og:url">
 	<meta content="habby - Bullet Journal & Habit Tracking App" property="og:title">
 	<meta
-		content="A beautiful, distraction-free digital bullet journal and habit tracking app. Transform your daily journaling and habit building experience."
+		content="A quiet, distraction-free bullet journal and habit tracker. One line a day, flexible habits, monthly goals."
 		property="og:description">
+	<meta content="https://habby.day/screenshot1.png" property="og:image">
+	<meta content="habby - Bullet Journal & Habit Tracking App" property="og:image:alt">
 	<meta content="summary_large_image" property="twitter:card">
 	<meta content="https://habby.day/" property="twitter:url">
 	<meta content="habby - Bullet Journal & Habit Tracking App" property="twitter:title">
 	<meta
-		content="A beautiful, distraction-free digital bullet journal and habit tracking app. Transform your daily journaling and habit building experience."
+		content="A quiet, distraction-free bullet journal and habit tracker. One line a day, flexible habits, monthly goals."
 		property="twitter:description">
+	<meta content="https://habby.day/screenshot1.png" property="twitter:image">
 	<meta content="habby" name="application-name">
+	<meta content="index, follow" name="robots">
+	<meta content="#FAF3E8" name="theme-color">
 	<meta content="app-id=6740526397" name="apple-itunes-app">
 
 	<script type="application/ld+json">
@@ -44,14 +49,24 @@
             "@type": "MobileApplication",
             "name": "habby",
             "applicationCategory": "LifestyleApplication",
-            "operatingSystem": "iOS",
-            "description": "A beautiful, distraction-free digital bullet journal and habit tracking app.",
+            "operatingSystem": "iOS, Android",
+            "description": "A beautiful, distraction-free digital bullet journal and habit tracking app. One line a day, flexible habits, monthly goals.",
             "offers": {
                 "@type": "Offer",
                 "price": "0",
                 "priceCurrency": "USD"
             },
-            "url": "https://apps.apple.com/app/habby-bullet-journal/id6740526397"
+            "url": "https://apps.apple.com/app/habby-bullet-journal/id6740526397",
+            "screenshot": "https://habby.day/screenshot1.png",
+            "image": "https://habby.day/icon.png"
+        }
+    </script>
+	<script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "habby",
+            "url": "https://habby.day/"
         }
     </script>
 
@@ -63,10 +78,10 @@
 	<style>
 		:root {
 			--color-primary: #B6C7AA;
-			--color-secondary: #F6E6CB;
+			--color-secondary: #FAF3E8;
 			--color-accent: #65647C;
-			--color-text-primary: #4A4947;
-			--color-text-secondary: #686764;
+			--color-text-primary: #2D2B28;
+			--color-text-secondary: #7A7774;
 			--color-1: #e4a0a6;
 			--color-2: #d4a0b6;
 			--color-3: #c4a0c6;
@@ -88,9 +103,9 @@
 		}
 
 		.container {
-			max-width: 800px;
+			max-width: 820px;
 			margin: 0 auto;
-			padding: 2rem;
+			padding: 3rem 2rem;
 			text-align: center;
 		}
 
@@ -98,15 +113,16 @@
 			display: flex;
 			flex-direction: column;
 			align-items: center;
-			gap: 1rem;
+			gap: 0.75rem;
 			margin-bottom: 2rem;
 		}
 
 		.app-icon {
-			width: 80px;
-			height: 80px;
-			border-radius: 20px;
+			width: 88px;
+			height: 88px;
+			border-radius: 22px;
 			overflow: hidden;
+			box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 		}
 
 		.app-icon img {
@@ -117,30 +133,31 @@
 
 		h1 {
 			font-family: 'Amiri', serif;
-			font-size: 4rem;
+			font-size: 4.5rem;
 			font-weight: bold;
 			margin: 0;
 			color: var(--color-text-primary);
-			letter-spacing: -0.02em;
+			letter-spacing: -0.03em;
+			line-height: 1.1;
 		}
 
-		.subtitle {
-			font-family: 'Amiri', serif;
-			font-size: 1.8rem;
-			color: var(--color-text-primary);
-		}
-
-		.store-buttons {
-			margin: 2rem 0 3rem;
+		.tagline {
+			font-family: 'Inter', sans-serif;
+			font-size: 1.15rem;
+			font-weight: 200;
+			color: var(--color-text-secondary);
+			max-width: 420px;
+			line-height: 1.5;
+			margin-top: 0.25rem;
 		}
 
 		.cta-grid {
-			display: grid;
-			grid-template-columns: repeat(3, 1fr);
-			gap: 1rem;
-			margin: 2rem auto;
-			max-width: 600px;
-			padding: 0 1rem;
+			display: flex;
+			gap: 0.75rem;
+			margin: 2.5rem auto;
+			justify-content: center;
+			align-items: center;
+			flex-wrap: wrap;
 		}
 
 		.cta-button {
@@ -160,20 +177,16 @@
 		}
 
 		.cta-button:hover {
-			transform: translateY(-1px);
-		}
-
-		.coming-soon {
-			opacity: 0.5;
-			cursor: not-allowed;
+			transform: translateY(-2px);
 		}
 
 		.support-button {
 			background-color: var(--color-2);
-			color: var(--color-secondary);
+			color: #fff;
 			gap: 0.5rem;
-			font-size: 1rem;
-			padding: 0 1.5rem;
+			font-size: 0.95rem;
+			padding: 0 1.25rem;
+			font-weight: 400;
 		}
 
 		.support-button:hover {
@@ -182,33 +195,33 @@
 
 		.features {
 			display: grid;
-			grid-template-columns: repeat(4, 1fr);
-			gap: 2rem;
-			max-width: 800px;
-			margin: 2em auto 3em auto;
-			text-align: center;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 1.75rem;
+			max-width: 560px;
+			margin: 0 auto 3rem auto;
+			text-align: left;
 		}
 
 		.feature {
 			display: flex;
-			flex-direction: column;
-			align-items: center;
-			gap: 1rem;
+			align-items: flex-start;
+			gap: 0.85rem;
 		}
 
 		.feature-icon {
-			width: 48px;
-			height: 48px;
+			width: 40px;
+			height: 40px;
+			min-width: 40px;
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			border-radius: 12px;
-			color: var(--color-secondary);
+			border-radius: 10px;
+			color: #fff;
 			transition: transform 0.2s ease;
 		}
 
 		.feature-icon:hover {
-			transform: scale(1.05);
+			transform: scale(1.08);
 		}
 
 		.feature:nth-child(1) .feature-icon {
@@ -227,9 +240,16 @@
 			background-color: var(--color-2);
 		}
 
-		.feature-text {
-			font-size: 1rem;
+		.feature-content h2 {
+			font-size: 0.9rem;
+			font-weight: 600;
+			margin-bottom: 0.15rem;
 			color: var(--color-text-primary);
+		}
+
+		.feature-content p {
+			font-size: 0.85rem;
+			color: var(--color-text-secondary);
 			line-height: 1.4;
 		}
 
@@ -237,7 +257,7 @@
 			display: flex;
 			justify-content: center;
 			gap: 2rem;
-			margin: 0 auto 2rem auto;
+			margin: 0 auto 2.5rem auto;
 			max-width: 900px;
 			padding: 0 1rem;
 			position: relative;
@@ -253,7 +273,7 @@
 			border-radius: 12px;
 			border-top-left-radius: 60px;
 			border-top-right-radius: 60px;
-			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+			box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
 		}
 
 		.product-hunt {
@@ -262,75 +282,42 @@
 			justify-content: center;
 		}
 
-		.support-section {
-			margin: 4rem auto 2rem;
-			padding: 0.5em;
-			border-radius: 12px;
-		}
-
-		.support-link {
-			display: inline-flex;
-			align-items: center;
-			gap: 0.5rem;
-			color: #fff;
-			text-decoration: none;
-			font-size: 1.1rem;
-			padding: 0.5rem 1rem;
-			border-radius: 8px;
-			background-color: var(--color-2);
-			transition: all 0.2s ease;
-		}
-
-		.support-link:hover {
-			background-color: var(--color-1);
-			transform: translateY(-1px);
-		}
-
-		.support-link i {
-			width: 18px;
-			height: 18px;
-		}
-
 		footer {
 			margin-top: 2rem;
 			color: var(--color-text-secondary);
-			font-size: 0.9rem;
+			font-size: 0.85rem;
 		}
 
 		footer a {
 			color: var(--color-text-secondary);
 			text-decoration: none;
-			border-bottom: 1px solid currentColor;
+			transition: color 0.2s ease;
 		}
 
 		footer a:hover {
-			opacity: 0.8;
+			color: var(--color-text-primary);
+		}
+
+		footer .sep {
+			margin: 0 0.35rem;
+			opacity: 0.4;
 		}
 
 		@media (max-width: 768px) {
 			.container {
-				padding: 1.5rem;
-			}
-
-			.cta-grid {
-				grid-template-columns: repeat(2, 1fr);
-			}
-
-			.support-button {
-				grid-column: span 2;
+				padding: 2rem 1.5rem;
 			}
 
 			.features {
-				grid-template-columns: repeat(2, 1fr);
-				gap: 1.5rem;
+				gap: 1.25rem;
 			}
 
 			h1 {
-				font-size: 3rem;
+				font-size: 3.5rem;
 			}
 
-			.subtitle {
-				font-size: 1.4rem;
+			.tagline {
+				font-size: 1.05rem;
 			}
 
 			.screenshots {
@@ -350,12 +337,12 @@
 
 		@media (max-width: 480px) {
 			.container {
-				padding: 1rem;
+				padding: 1.5rem 1rem;
 			}
 
 			.features {
 				grid-template-columns: 1fr;
-				gap: 1.5rem;
+				gap: 1.25rem;
 			}
 
 			.screenshots {
@@ -368,49 +355,18 @@
 				width: 80%;
 				max-width: 280px;
 			}
-
-			.support-section {
-				margin: 3rem auto 1.5rem;
-			}
 		}
 	</style>
 </head>
 
 <body>
-	<div class="container">
-		<div class="header">
+	<main class="container">
+		<header class="header">
 			<div class="app-icon">
 				<img alt="habby app icon" src="icon.png">
 			</div>
 			<h1>habby</h1>
-			<div class="subtitle">Bullet Journal - Habit Tracker</div>
-
-			<div class="features">
-				<div class="feature">
-					<div class="feature-icon">
-						<i data-feather="feather"></i>
-					</div>
-					<div class="feature-text">Simple, beautiful, and distraction-free by design</div>
-				</div>
-				<div class="feature">
-					<div class="feature-icon">
-						<i data-feather="edit-3"></i>
-					</div>
-					<div class="feature-text">Capture your day with a single meaningful sentence</div>
-				</div>
-				<div class="feature">
-					<div class="feature-icon">
-						<i data-feather="check-circle"></i>
-					</div>
-					<div class="feature-text">Track daily habits with flexible measurement options</div>
-				</div>
-				<div class="feature">
-					<div class="feature-icon">
-						<i data-feather="bar-chart-2"></i>
-					</div>
-					<div class="feature-text">Set and achieve monthly goals with progress tracking</div>
-				</div>
-			</div>
+			<p class="tagline">A quiet space for your daily habits, goals, and reflections.</p>
 
 			<div class="cta-grid">
 				<a href="https://apps.apple.com/app/habby-bullet-journal/id6740526397" class="cta-button">
@@ -421,8 +377,8 @@
 					<img alt="Get it on Google Play" src="play-store-badge.png">
 				</a>
 				<a href="https://buymeacoffee.com/habbyapp" target="_blank" class="cta-button support-button">
-					<i data-feather="coffee"></i>
-					Support me!
+					<i data-feather="heart"></i>
+					Support
 				</a>
 			</div>
 
@@ -434,6 +390,45 @@
 					<img src="screenshot2.png" alt="habby app screenshot - Monthly Goals">
 				</div>
 			</div>
+
+			<section class="features" aria-label="Features">
+				<div class="feature">
+					<div class="feature-icon">
+						<i data-feather="feather"></i>
+					</div>
+					<div class="feature-content">
+						<h2>Distraction-free</h2>
+						<p>No feeds, no noise. Just you and your journal.</p>
+					</div>
+				</div>
+				<div class="feature">
+					<div class="feature-icon">
+						<i data-feather="edit-3"></i>
+					</div>
+					<div class="feature-content">
+						<h2>One line a day</h2>
+						<p>Capture what mattered in a single sentence.</p>
+					</div>
+				</div>
+				<div class="feature">
+					<div class="feature-icon">
+						<i data-feather="check-circle"></i>
+					</div>
+					<div class="feature-content">
+						<h2>Flexible habits</h2>
+						<p>Track anything your way — streaks, counts, or checkboxes.</p>
+					</div>
+				</div>
+				<div class="feature">
+					<div class="feature-icon">
+						<i data-feather="target"></i>
+					</div>
+					<div class="feature-content">
+						<h2>Monthly goals</h2>
+						<p>Set intentions and watch your progress unfold.</p>
+					</div>
+				</div>
+			</section>
 
 			<div class="product-hunt" style="display: flex; gap: 1rem; justify-content: center; align-items: center;">
 				<a href="https://www.producthunt.com/posts/habby?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-habby"
@@ -448,15 +443,13 @@
 						src="https://betalist.com/badges/featured?id=118836&theme=dark">
 				</a>
 			</div>
-		</div>
+		</header>
 
 		<footer>
-			<p>© 2025 habby. • <a target="_blank" href="https://bored.cat">Albert C</a> • <a
-					href="privacy-policy.html">Privacy
-					Policy</a> • <a href="docs.html"
-					style="color: var(--color-accent); font-weight: 500;">Documentation</a></p>
+			<p>© 2026 habby <span class="sep">·</span> <a target="_blank" href="https://bored.cat">Albert C</a> <span class="sep">·</span> <a
+					href="privacy-policy.html">Privacy</a> <span class="sep">·</span> <a href="docs.html">Docs</a></p>
 		</footer>
-	</div>
+	</main>
 
 	<script>
 		feather.replace()

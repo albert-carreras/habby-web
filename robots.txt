@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://habby.day/sitemap.xml
